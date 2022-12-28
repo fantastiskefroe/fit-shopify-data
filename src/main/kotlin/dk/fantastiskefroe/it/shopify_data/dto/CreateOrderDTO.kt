@@ -11,7 +11,7 @@ data class CreateOrderDTO(
     val number: Int,
     @JsonProperty("cancel_reason") val cancelReason: CancelReason?,
     @JsonProperty("financial_status") val financialStatus: FinancialStatus,
-    @JsonProperty("fulfillment_status") val fulfillmentStatus: FulfillmentStatus,
+    @JsonProperty("fulfillment_status") val fulfillmentStatus: FulfillmentStatus?,
     @JsonProperty("total_discount") val totalDiscount: Double?,
     @JsonProperty("subtotal_price") val subtotalPrice: Double?,
     @JsonProperty("total_tax") val totalTax: Double?,
@@ -28,7 +28,7 @@ fun CreateOrderDTO.toOrder() : Order {
         order.number = number
         order.cancel_reason = cancelReason
         order.financial_status = financialStatus
-        order.fulfillment_status = fulfillmentStatus
+        order.fulfillment_status = fulfillmentStatus ?: FulfillmentStatus.NULL
         order.total_discount = totalDiscount
         order.subtotal_price = subtotalPrice
         order.total_tax = totalTax
