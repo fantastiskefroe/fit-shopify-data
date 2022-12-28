@@ -34,7 +34,7 @@ jobs:
       - name: Package and push
         uses: docker/build-push-action@v3
         with:
-          file: "{context}/src/main/docker/Dockerfile.jvm"
+          file: ".//src/main/docker/Dockerfile.jvm"
           labels: |
             maintainer=${{ github.repository_owner }}
             org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
