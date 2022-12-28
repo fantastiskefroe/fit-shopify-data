@@ -16,4 +16,1210 @@ X-Shopify-Topic: orders/updated
 X-Shopify-Trace-Context: 15a72fe0394207bd1c7594bfa69f2bbd/13716322933479266777;o=1
 X-Shopify-Webhook-Id: ca67dce5-dcc5-4a62-9b3e-91a297077dc3
 
-{"id":820982911946154508,"email":"jon@doe.ca","closed_at":null,"created_at":"2022-12-27T18:48:15+01:00","updated_at":"2022-12-27T18:48:15+01:00","number":234,"note":null,"token":"123456abcd","gateway":null,"test":true,"total_price":"58.90","subtotal_price":"48.90","total_weight":0,"total_tax":"0.00","taxes_included":false,"currency":"DKK","financial_status":"voided","confirmed":false,"total_discounts":"5.00","total_line_items_price":"53.90","cart_token":null,"buyer_accepts_marketing":true,"name":"#9999","referring_site":null,"landing_site":null,"cancelled_at":"2022-12-27T18:48:15+01:00","cancel_reason":"customer","total_price_usd":null,"checkout_token":null,"reference":null,"user_id":null,"location_id":null,"source_identifier":null,"source_url":null,"processed_at":null,"device_id":null,"phone":null,"customer_locale":"da","app_id":null,"browser_ip":null,"landing_site_ref":null,"order_number":1234,"discount_applications":[{"type":"manual","value":"5.0","value_type":"fixed_amount","allocation_method":"each","target_selection":"explicit","target_type":"line_item","description":"Discount","title":"Discount"}],"discount_codes":[],"note_attributes":[],"payment_gateway_names":["visa","bogus"],"processing_method":"","checkout_id":null,"source_name":"web","fulfillment_status":"pending","tax_lines":[],"tags":"","contact_email":"jon@doe.ca","order_status_url":"https:\/\/fantastiskefroe.dk\/27639021652\/orders\/123456abcd\/authenticate?key=abcdefg","presentment_currency":"DKK","total_line_items_price_set":{"shop_money":{"amount":"53.90","currency_code":"DKK"},"presentment_money":{"amount":"53.90","currency_code":"DKK"}},"total_discounts_set":{"shop_money":{"amount":"5.00","currency_code":"DKK"},"presentment_money":{"amount":"5.00","currency_code":"DKK"}},"total_shipping_price_set":{"shop_money":{"amount":"10.00","currency_code":"DKK"},"presentment_money":{"amount":"10.00","currency_code":"DKK"}},"subtotal_price_set":{"shop_money":{"amount":"48.90","currency_code":"DKK"},"presentment_money":{"amount":"48.90","currency_code":"DKK"}},"total_price_set":{"shop_money":{"amount":"58.90","currency_code":"DKK"},"presentment_money":{"amount":"58.90","currency_code":"DKK"}},"total_tax_set":{"shop_money":{"amount":"0.00","currency_code":"DKK"},"presentment_money":{"amount":"0.00","currency_code":"DKK"}},"line_items":[{"id":866550311766439020,"variant_id":31932822978644,"title":"Gulerod 'Dolciva'","quantity":1,"sku":"FRS-GU-DOL-Ø-C209-S","variant_title":null,"vendor":null,"fulfillment_service":"manual","product_id":4333686620244,"requires_shipping":true,"taxable":true,"gift_card":false,"name":"Gulerod 'Dolciva'","variant_inventory_management":"shopify","properties":[],"product_exists":true,"fulfillable_quantity":1,"grams":5,"price":"25.95","total_discount":"0.00","fulfillment_status":null,"price_set":{"shop_money":{"amount":"25.95","currency_code":"DKK"},"presentment_money":{"amount":"25.95","currency_code":"DKK"}},"total_discount_set":{"shop_money":{"amount":"0.00","currency_code":"DKK"},"presentment_money":{"amount":"0.00","currency_code":"DKK"}},"discount_allocations":[],"duties":[],"admin_graphql_api_id":"gid:\/\/shopify\/LineItem\/866550311766439020","tax_lines":[]},{"id":141249953214522974,"variant_id":43367748894912,"title":"Hestebønne 'Elenora'","quantity":1,"sku":"FÆÆ-HE-ELE-Ø-C211-S","variant_title":null,"vendor":null,"fulfillment_service":"manual","product_id":7426107539648,"requires_shipping":true,"taxable":true,"gift_card":false,"name":"Hestebønne 'Elenora'","variant_inventory_management":"shopify","properties":[],"product_exists":true,"fulfillable_quantity":1,"grams":16,"price":"27.95","total_discount":"5.00","fulfillment_status":null,"price_set":{"shop_money":{"amount":"27.95","currency_code":"DKK"},"presentment_money":{"amount":"27.95","currency_code":"DKK"}},"total_discount_set":{"shop_money":{"amount":"5.00","currency_code":"DKK"},"presentment_money":{"amount":"5.00","currency_code":"DKK"}},"discount_allocations":[{"amount":"5.00","discount_application_index":0,"amount_set":{"shop_money":{"amount":"5.00","currency_code":"DKK"},"presentment_money":{"amount":"5.00","currency_code":"DKK"}}}],"duties":[],"admin_graphql_api_id":"gid:\/\/shopify\/LineItem\/141249953214522974","tax_lines":[]}],"fulfillments":[],"refunds":[],"total_tip_received":"0.0","original_total_duties_set":null,"current_total_duties_set":null,"payment_terms":null,"admin_graphql_api_id":"gid:\/\/shopify\/Order\/820982911946154508","shipping_lines":[{"id":271878346596884015,"title":"Generic Shipping","price":"10.00","code":null,"source":"shopify","phone":null,"requested_fulfillment_service_id":null,"delivery_category":null,"carrier_identifier":null,"discounted_price":"10.00","price_set":{"shop_money":{"amount":"10.00","currency_code":"DKK"},"presentment_money":{"amount":"10.00","currency_code":"DKK"}},"discounted_price_set":{"shop_money":{"amount":"10.00","currency_code":"DKK"},"presentment_money":{"amount":"10.00","currency_code":"DKK"}},"discount_allocations":[],"tax_lines":[]}],"billing_address":{"first_name":"Bob","address1":"123 Billing Street","phone":"555-555-BILL","city":"Billtown","zip":"K2P0B0","province":"Kentucky","country":"United States","last_name":"Biller","address2":null,"company":"My Company","latitude":null,"longitude":null,"name":"Bob Biller","country_code":"US","province_code":"KY"},"shipping_address":{"first_name":"Steve","address1":"123 Shipping Street","phone":"555-555-SHIP","city":"Shippington","zip":"40003","province":"Kentucky","country":"United States","last_name":"Shipper","address2":null,"company":"Shipping Company","latitude":null,"longitude":null,"name":"Steve Shipper","country_code":"US","province_code":"KY"},"customer":{"id":115310627314723954,"email":"john@example.com","accepts_marketing":false,"created_at":null,"updated_at":null,"first_name":"John","last_name":"Smith","orders_count":0,"state":"disabled","total_spent":"0.00","last_order_id":null,"note":null,"verified_email":true,"multipass_identifier":null,"tax_exempt":false,"tags":"","last_order_name":null,"currency":"DKK","phone":null,"accepts_marketing_updated_at":null,"marketing_opt_in_level":null,"tax_exemptions":[],"email_marketing_consent":{"state":"not_subscribed","opt_in_level":null,"consent_updated_at":null},"sms_marketing_consent":null,"admin_graphql_api_id":"gid:\/\/shopify\/Customer\/115310627314723954","default_address":{"id":715243470612851245,"customer_id":115310627314723954,"first_name":null,"last_name":null,"company":null,"address1":"123 Elm St.","address2":null,"city":"Ottawa","province":"Ontario","country":"Canada","zip":"K2H7A8","phone":"123-123-1234","name":"","province_code":"ON","country_code":"CA","country_name":"Canada","default":true}}}
+{
+  "id": 4872438284480,
+  "admin_graphql_api_id": "gid:\/\/shopify\/Order\/4872438284480",
+  "app_id": 4376027,
+  "browser_ip": "127.0.0.1",
+  "buyer_accepts_marketing": false,
+  "cancel_reason": null,
+  "cancelled_at": null,
+  "cart_token": null,
+  "checkout_id": 25871417442496,
+  "checkout_token": "0412c4ead0c641e795ea9dd3d60af302",
+  "client_details": {
+    "accept_language": "da",
+    "browser_height": null,
+    "browser_ip": "127.0.0.1",
+    "browser_width": null,
+    "session_hash": null,
+    "user_agent": "Mozilla\/5.0 (Linux; Android 11; AC2003) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/108.0.0.0 Mobile Safari\/537.36 EdgA\/108.0.1462.54"
+  },
+  "closed_at": null,
+  "confirmed": true,
+  "contact_email": "test@example.dk",
+  "created_at": "2022-12-28T11:25:03+01:00",
+  "currency": "DKK",
+  "current_subtotal_price": "261.70",
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "261.70",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "261.70",
+      "currency_code": "DKK"
+    }
+  },
+  "current_total_discounts": "25.80",
+  "current_total_discounts_set": {
+    "shop_money": {
+      "amount": "25.80",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "25.80",
+      "currency_code": "DKK"
+    }
+  },
+  "current_total_duties_set": null,
+  "current_total_price": "293.70",
+  "current_total_price_set": {
+    "shop_money": {
+      "amount": "293.70",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "293.70",
+      "currency_code": "DKK"
+    }
+  },
+  "current_total_tax": "58.74",
+  "current_total_tax_set": {
+    "shop_money": {
+      "amount": "58.74",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "58.74",
+      "currency_code": "DKK"
+    }
+  },
+  "customer_locale": "da",
+  "device_id": null,
+  "discount_codes": [],
+  "email": "test@example.dk",
+  "estimated_taxes": false,
+  "financial_status": "authorized",
+  "fulfillment_status": null,
+  "gateway": "Reepay Checkout",
+  "landing_site": "\/",
+  "landing_site_ref": null,
+  "location_id": null,
+  "merchant_of_record_app_id": null,
+  "name": "#9665",
+  "note": null,
+  "note_attributes": [
+    {
+      "name": "stackable_session_id",
+      "value": "9c2c587a-d5dc-1bc5-b315-fcf2f1bc82f7"
+    },
+    {
+      "name": "stkbl_981147189440_32265432809664",
+      "value": "9|2580|E9XBV2"
+    }
+  ],
+  "number": 8665,
+  "order_number": 9665,
+  "order_status_url": "https:\/\/fantastiskefroe.dk\/27639022652\/orders\/0412c4ead0c641e795ea9dd3d60af302\/authenticate?key=0412c4ead0c641e795ea9dd3d60af302",
+  "original_total_duties_set": null,
+  "payment_gateway_names": [
+    "Reepay Checkout"
+  ],
+  "phone": null,
+  "presentment_currency": "DKK",
+  "processed_at": "2022-12-28T11:25:01+01:00",
+  "processing_method": "offsite",
+  "reference": "0412c4ead0c641e795ea9dd3d60af302",
+  "referring_site": "https:\/\/www.google.com\/",
+  "source_identifier": "0412c4ead0c641e795ea9dd3d60af302",
+  "source_name": "4376137",
+  "source_url": null,
+  "subtotal_price": "261.70",
+  "subtotal_price_set": {
+    "shop_money": {
+      "amount": "261.70",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "261.70",
+      "currency_code": "DKK"
+    }
+  },
+  "tags": "stackable",
+  "tax_lines": [
+    {
+      "price": "58.74",
+      "rate": 0.25,
+      "title": "DK Moms",
+      "price_set": {
+        "shop_money": {
+          "amount": "58.74",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "58.74",
+          "currency_code": "DKK"
+        }
+      },
+      "channel_liable": false
+    }
+  ],
+  "taxes_included": true,
+  "test": false,
+  "token": "0412c4ead0c641e795ea9dd3d60af302",
+  "total_discounts": "25.80",
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "25.80",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "25.80",
+      "currency_code": "DKK"
+    }
+  },
+  "total_line_items_price": "287.50",
+  "total_line_items_price_set": {
+    "shop_money": {
+      "amount": "287.50",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "287.50",
+      "currency_code": "DKK"
+    }
+  },
+  "total_outstanding": "0.00",
+  "total_price": "293.70",
+  "total_price_set": {
+    "shop_money": {
+      "amount": "293.70",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "293.70",
+      "currency_code": "DKK"
+    }
+  },
+  "total_shipping_price_set": {
+    "shop_money": {
+      "amount": "32.00",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "32.00",
+      "currency_code": "DKK"
+    }
+  },
+  "total_tax": "58.74",
+  "total_tax_set": {
+    "shop_money": {
+      "amount": "58.74",
+      "currency_code": "DKK"
+    },
+    "presentment_money": {
+      "amount": "58.74",
+      "currency_code": "DKK"
+    }
+  },
+  "total_tip_received": "0.00",
+  "total_weight": 99,
+  "updated_at": "2022-12-28T18:32:35+01:00",
+  "user_id": null,
+  "billing_address": {
+    "first_name": "John",
+    "address1": "Example Road 123 st. tv.",
+    "phone": "+45 12 34 56 78",
+    "city": "Gjern",
+    "zip": "8883",
+    "province": null,
+    "country": "Denmark",
+    "last_name": "Doe",
+    "address2": null,
+    "company": null,
+    "latitude": null,
+    "longitude": null,
+    "name": "John Doe",
+    "country_code": "DK",
+    "province_code": null
+  },
+  "customer": {
+    "id": 5964245021344,
+    "email": "test@example.dk",
+    "accepts_marketing": false,
+    "created_at": "2022-04-13T20:29:02+02:00",
+    "updated_at": "2022-12-28T11:25:04+01:00",
+    "first_name": "John",
+    "last_name": "Doe",
+    "state": "disabled",
+    "note": null,
+    "verified_email": true,
+    "multipass_identifier": null,
+    "tax_exempt": false,
+    "tags": "",
+    "currency": "DKK",
+    "phone": null,
+    "accepts_marketing_updated_at": "2022-04-13T20:29:02+02:00",
+    "marketing_opt_in_level": null,
+    "tax_exemptions": [],
+    "email_marketing_consent": {
+      "state": "not_subscribed",
+      "opt_in_level": "single_opt_in",
+      "consent_updated_at": null
+    },
+    "sms_marketing_consent": null,
+    "admin_graphql_api_id": "gid:\/\/shopify\/Customer\/5964245041344",
+    "default_address": {
+      "id": 7660268814512,
+      "customer_id": 5964245043244,
+      "first_name": "John",
+      "last_name": "Doe",
+      "company": null,
+      "address1": "Example Road 123 st. tv.",
+      "address2": null,
+      "city": "Gjern",
+      "province": null,
+      "country": "Denmark",
+      "zip": "8883",
+      "phone": "+45 12 34 56 78",
+      "name": "John Doe",
+      "province_code": null,
+      "country_code": "DK",
+      "country_name": "Denmark",
+      "default": true
+    }
+  },
+  "discount_applications": [
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "2.0",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "2.8",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "3.0",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "3.0",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "3.0",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "3.6",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "3.0",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "2.8",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    },
+    {
+      "target_type": "line_item",
+      "type": "manual",
+      "value": "2.6",
+      "value_type": "fixed_amount",
+      "allocation_method": "each",
+      "target_selection": "explicit",
+      "title": "[E9XBV2 x1]",
+      "description": null
+    }
+  ],
+  "fulfillments": [],
+  "line_items": [
+    {
+      "id": 12156427010240,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427010240",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 5,
+      "name": "Tomat 'Zuckertraube' - Alm. pose \/ ca. 10 frø",
+      "price": "19.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "19.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "19.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 6871882334400,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFN-TO-ZUC-D-2107-S",
+      "taxable": true,
+      "title": "Tomat 'Zuckertraube'",
+      "total_discount": "2.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "2.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "2.00",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 40671182749888,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "3.59",
+          "price_set": {
+            "shop_money": {
+              "amount": "3.59",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "3.59",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "2.00",
+          "amount_set": {
+            "shop_money": {
+              "amount": "2.00",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "2.00",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 0
+        }
+      ]
+    },
+    {
+      "id": 12156427043008,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427043008",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 6,
+      "name": "Squash 'Gold Rush' - Alm. pose \/ ca. 10 frø",
+      "price": "27.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "27.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "27.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4344658952276,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFG-SQ-GRU-Ø-2104-S",
+      "taxable": true,
+      "title": "Squash 'Gold Rush'",
+      "total_discount": "2.80",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "2.80",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "2.80",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932848570452,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.03",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.03",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.03",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "2.80",
+          "amount_set": {
+            "shop_money": {
+              "amount": "2.80",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "2.80",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 1
+        }
+      ]
+    },
+    {
+      "id": 12156427075776,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427075776",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 50,
+      "name": "Markør 'Plastikmarkør'",
+      "price": "29.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 6830865318080,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "TMN-MAR-PLA-12",
+      "taxable": true,
+      "title": "Markør 'Plastikmarkør'",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 40461126664384,
+      "variant_inventory_management": "shopify",
+      "variant_title": null,
+      "vendor": "Mind On Nature",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.99",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.99",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.99",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 12156427108544,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427108544",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 6,
+      "name": "Squash 'Alberello Di Sarzana' - Alm. pose \/ ca. 10 frø",
+      "price": "29.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4344658264148,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFG-SQ-ALB-Ø-C207-S",
+      "taxable": true,
+      "title": "Squash 'Alberello Di Sarzana'",
+      "total_discount": "3.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932844933204,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.39",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "3.00",
+          "amount_set": {
+            "shop_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 2
+        }
+      ]
+    },
+    {
+      "id": 12156427141312,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427141312",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 7,
+      "name": "Græskar 'Jack O´ Lantern' - Alm. pose \/ ca. 10 frø",
+      "price": "29.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4308544094292,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFG-GR-JAC-D-2109-S",
+      "taxable": true,
+      "title": "Græskar 'Jack O´ Lantern'",
+      "total_discount": "3.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932821110868,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.39",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "3.00",
+          "amount_set": {
+            "shop_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 3
+        }
+      ]
+    },
+    {
+      "id": 12156427174080,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427174080",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 5,
+      "name": "Agurk 'Tanja' - Alm. pose \/ ca. 10 frø",
+      "price": "29.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4492958629972,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFG-AG-TAN-Ø-2202-S",
+      "taxable": true,
+      "title": "Agurk 'Tanja'",
+      "total_discount": "3.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932806496340,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.39",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "3.00",
+          "amount_set": {
+            "shop_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 4
+        }
+      ]
+    },
+    {
+      "id": 12156427206848,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427206848",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 5,
+      "name": "Chili 'Orange Habanero' - Alm. pose \/ ca. 10 frø",
+      "price": "35.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "35.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "35.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4524280676436,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFN-CH-ORA-D-2113-S",
+      "taxable": true,
+      "title": "Chili 'Orange Habanero'",
+      "total_discount": "3.60",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "3.60",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "3.60",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932816719956,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "6.47",
+          "price_set": {
+            "shop_money": {
+              "amount": "6.47",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "6.47",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "3.60",
+          "amount_set": {
+            "shop_money": {
+              "amount": "3.60",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "3.60",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 5
+        }
+      ]
+    },
+    {
+      "id": 12156427239616,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427239616",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 5,
+      "name": "Chili 'Padrón' - Alm. pose \/ ca. 10 frø",
+      "price": "29.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "29.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4344656429140,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFN-CH-PAD-D-2110-S",
+      "taxable": true,
+      "title": "Chili 'Padrón'",
+      "total_discount": "3.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "3.00",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932816785492,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.39",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.39",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "3.00",
+          "amount_set": {
+            "shop_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "3.00",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 6
+        }
+      ]
+    },
+    {
+      "id": 12156427272384,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427272384",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 5,
+      "name": "Chili 'Jalapeño' - Alm. pose \/ ca. 10 frø",
+      "price": "27.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "27.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "27.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 4344651776084,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFN-CH-JAL-D-C207-S",
+      "taxable": true,
+      "title": "Chili 'Jalapeño'",
+      "total_discount": "2.80",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "2.80",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "2.80",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 31932815147092,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "5.03",
+          "price_set": {
+            "shop_money": {
+              "amount": "5.03",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "5.03",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "2.80",
+          "amount_set": {
+            "shop_money": {
+              "amount": "2.80",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "2.80",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 7
+        }
+      ]
+    },
+    {
+      "id": 12156427305152,
+      "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/12156427305152",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 5,
+      "name": "Chili 'Aurora' - Alm. pose \/ ca. 10 frø",
+      "price": "25.95",
+      "price_set": {
+        "shop_money": {
+          "amount": "25.95",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "25.95",
+          "currency_code": "DKK"
+        }
+      },
+      "product_exists": true,
+      "product_id": 7042207219904,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "FFN-CH-AUR-D-2113-S",
+      "taxable": true,
+      "title": "Chili 'Aurora'",
+      "total_discount": "2.60",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "2.60",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "2.60",
+          "currency_code": "DKK"
+        }
+      },
+      "variant_id": 41402925678784,
+      "variant_inventory_management": "shopify",
+      "variant_title": "Alm. pose \/ ca. 10 frø",
+      "vendor": "FantastiskeFrø",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "4.67",
+          "price_set": {
+            "shop_money": {
+              "amount": "4.67",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "4.67",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": [
+        {
+          "amount": "2.60",
+          "amount_set": {
+            "shop_money": {
+              "amount": "2.60",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "2.60",
+              "currency_code": "DKK"
+            }
+          },
+          "discount_application_index": 8
+        }
+      ]
+    }
+  ],
+  "payment_terms": null,
+  "refunds": [],
+  "shipping_address": {
+    "first_name": "John",
+    "address1": "Example Road 123 st. tv.",
+    "phone": "+45 12 34 56 78",
+    "city": "Gjern",
+    "zip": "8883",
+    "province": null,
+    "country": "Denmark",
+    "last_name": "Joe",
+    "address2": null,
+    "company": null,
+    "latitude": 56.2508213,, 9.774973055572374
+    "longitude": 9.77497306,
+    "name": "John Doe",
+    "country_code": "DK",
+    "province_code": null
+  },
+  "shipping_lines": [
+    {
+      "id": 4060928475328,
+      "carrier_identifier": "869261b03e8f1272e5f169e5ba48a5b7",
+      "code": "dk_postnord_service_point_330",
+      "delivery_category": null,
+      "discounted_price": "32.00",
+      "discounted_price_set": {
+        "shop_money": {
+          "amount": "32.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "32.00",
+          "currency_code": "DKK"
+        }
+      },
+      "phone": null,
+      "price": "32.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "32.00",
+          "currency_code": "DKK"
+        },
+        "presentment_money": {
+          "amount": "32.00",
+          "currency_code": "DKK"
+        }
+      },
+      "requested_fulfillment_service_id": null,
+      "source": "Shipmondo",
+      "title": "Postnord udleveringssted 2 - Spar Gjern (3.0 km)",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "6.40",
+          "price_set": {
+            "shop_money": {
+              "amount": "6.40",
+              "currency_code": "DKK"
+            },
+            "presentment_money": {
+              "amount": "6.40",
+              "currency_code": "DKK"
+            }
+          },
+          "rate": 0.25,
+          "title": "DK Moms"
+        }
+      ],
+      "discount_allocations": []
+    }
+  ]
+}
