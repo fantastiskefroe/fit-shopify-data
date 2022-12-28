@@ -9,7 +9,7 @@ import java.time.Instant
 data class CreateOrderDTO(
     val name: String,
     val number: Int,
-    @JsonProperty("cancel_reason") val cancelReason: CancelReason,
+    @JsonProperty("cancel_reason") val cancelReason: CancelReason?,
     @JsonProperty("financial_status") val financialStatus: FinancialStatus,
     @JsonProperty("fulfillment_status") val fulfillmentStatus: FulfillmentStatus,
     @JsonProperty("total_discount") val totalDiscount: Double?,
