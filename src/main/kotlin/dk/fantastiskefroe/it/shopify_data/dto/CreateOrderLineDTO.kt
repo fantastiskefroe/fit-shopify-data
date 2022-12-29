@@ -2,7 +2,6 @@ package dk.fantastiskefroe.it.shopify_data.dto
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-import dk.fantastiskefroe.it.shopify_data.entity.Order
 import dk.fantastiskefroe.it.shopify_data.entity.OrderLine
 
 
@@ -16,13 +15,12 @@ data class CreateOrderLineDTO(
     val price: Double?
 )
 
-fun CreateOrderLineDTO.toOrderLine(parent: Order) : OrderLine {
+fun CreateOrderLineDTO.toOrderLine(): OrderLine {
     return OrderLine().also {
         it.sku = sku
         it.title = title
-        it.variant_title = variantTitle
+        it.variantTitle = variantTitle
         it.quantity = quantity
         it.price = price
-        it.order = parent
     }
 }

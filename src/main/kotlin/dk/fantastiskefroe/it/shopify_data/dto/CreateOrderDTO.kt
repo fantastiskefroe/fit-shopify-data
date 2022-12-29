@@ -9,33 +9,42 @@ import java.time.Instant
 data class CreateOrderDTO(
     val name: String,
     val number: Int,
-    @JsonProperty("cancel_reason") val cancelReason: CancelReason?,
-    @JsonProperty("financial_status") val financialStatus: FinancialStatus,
-    @JsonProperty("fulfillment_status") val fulfillmentStatus: FulfillmentStatus?,
-    @JsonProperty("total_discount") val totalDiscount: Double?,
-    @JsonProperty("subtotal_price") val subtotalPrice: Double?,
-    @JsonProperty("total_tax") val totalTax: Double?,
-    @JsonProperty("total_price") val totalPrice: Double?,
-    @JsonProperty("total_shipping_price") val totalShippingPrice: Double?,
-    @JsonProperty("created_at") val createdAt: Instant,
-
-    @JsonProperty("line_items") val lineItems: List<CreateOrderLineDTO>,
+    @JsonProperty("cancel_reason")
+    val cancelReason: CancelReason?,
+    @JsonProperty("financial_status")
+    val financialStatus: FinancialStatus,
+    @JsonProperty("fulfillment_status")
+    val fulfillmentStatus: FulfillmentStatus?,
+    @JsonProperty("total_discount")
+    val totalDiscount: Double?,
+    @JsonProperty("subtotal_price")
+    val subtotalPrice: Double?,
+    @JsonProperty("total_tax")
+    val totalTax: Double?,
+    @JsonProperty("total_price")
+    val totalPrice: Double?,
+    @JsonProperty("total_shipping_price")
+    val totalShippingPrice: Double?,
+    @JsonProperty("created_at")
+    val createdAt: Instant,
+    @JsonProperty("line_items")
+    val lineItems: List<CreateOrderLineDTO>,
 )
 
-fun CreateOrderDTO.toOrder() : Order {
+fun CreateOrderDTO.toOrder(): Order {
     return Order().also { order ->
         order.name = name
         order.number = number
-        order.cancel_reason = cancelReason
-        order.financial_status = financialStatus
-        order.fulfillment_status = fulfillmentStatus ?: FulfillmentStatus.NULL
-        order.total_discount = totalDiscount
-        order.subtotal_price = subtotalPrice
-        order.total_tax = totalTax
-        order.total_price = totalPrice
-        order.total_shipping_price = totalShippingPrice
-        order.created_date_time = createdAt
-        order.valid_from = Instant.now()
-        order.lines = lineItems.map { line -> line.toOrderLine(order) }.toSet()
+        order.cancelReason = cancelReason
+        order.financialStatus = financialStatus
+        order.fulfillmentStatus = fulfillmentStatus ?: FulfillmentStatus.NULL
+        order.totalDiscount = totalDiscount
+        order.subtotalPrice = subtotalPrice
+        order.totalTax = totalTax
+        order.totalPrice = totalPrice
+        order.totalShippingPrice = totalShippingPrice
+        order.createdDateTime = createdAt
+        order.validFrom = Instant.now()
+        order.orderLines = lineItems.map(CreateOrderLineDTO::toOrderLine).toSet()
     }
 }

@@ -31,10 +31,13 @@ class ShopifyController {
     }
 
     private fun createOrUpdateOrder(order: CreateOrderDTO): OrderDTO? {
-        val existingOrder = Order.findValidByName(order.name)?.let {
-            it.valid_to = Instant.now()
+        Order.findValidByName(order.name)?.let {
+            it.validTo = Instant.now()
             it.persist()
         }
-        return order.toOrder().also(Order::persist).let(OrderDTO::from)
+
+        return order.toOrder()
+            .also(Order::persist)
+            .let(OrderDTO::from)
     }
 }
