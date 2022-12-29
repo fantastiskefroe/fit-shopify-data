@@ -31,7 +31,7 @@ class ShopifyController {
     }
 
     private fun createOrUpdateOrder(order: CreateOrderDTO): OrderDTO? {
-        Order.findValidByName(order.name)?.let {
+        Order.findValidByNumber(order.number)?.let {
             it.validTo = Instant.now()
             it.persist()
         }

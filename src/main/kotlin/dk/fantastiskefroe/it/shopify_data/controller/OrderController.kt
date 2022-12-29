@@ -17,7 +17,7 @@ class OrderController {
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
     fun getOrders(@QueryParam("fulfillmentStatus") fulfillmentStatus: FulfillmentStatus?): List<OrderDTO> {
-        return (fulfillmentStatus?.let(Order.Companion::findByFulfillmentStatus) ?: Order.listAllValid())
+        return (fulfillmentStatus?.let(Order.Companion::listByFulfillmentStatus) ?: Order.listAllValid())
             .map(OrderDTO::from)
     }
 }

@@ -1,6 +1,7 @@
 package dk.fantastiskefroe.it.shopify_data.entity
 
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheCompanion
+import io.quarkus.panache.common.Sort
 import java.time.Instant
 import javax.persistence.*
 
@@ -36,9 +37,12 @@ class Order : PanachePostgresEntity() {
     lateinit var orderLines: Set<OrderLine>
 
     companion object : PanacheCompanion<Order> {
-        fun findValidByName(name: String) =
-            find("name = ?1 and valid_from <= ?2 and valid_to = null", name, Instant.now()).firstResult()
-        fun findByFulfillmentStatus(status: FulfillmentStatus) = list("fulfillment_status = ?1", status.name)
-        fun listAllValid() = list("valid_to = null")
+        fun findValidByNumber(number: Int) =
+            find("number = ?1 and valid_from <= ?2 and valid_to = null", number, Instant.now()).firstResult()
+
+        fun listByFulfillmentStatus(status: FulfillmentStatus) =
+            list("fulfillment_status = ?1", Sort.by("number"), status.name)
+
+        fun listAllValid() = list("valid_to = null", Sort.by("number"))
     }
 }
