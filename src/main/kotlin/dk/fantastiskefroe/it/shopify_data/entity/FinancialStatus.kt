@@ -1,4 +1,4 @@
-package dk.fantastiskefroe.it.shopify_data.dto
+package dk.fantastiskefroe.it.shopify_data.entity
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

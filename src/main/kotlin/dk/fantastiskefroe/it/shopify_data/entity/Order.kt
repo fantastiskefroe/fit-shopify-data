@@ -1,8 +1,5 @@
 package dk.fantastiskefroe.it.shopify_data.entity
 
-import dk.fantastiskefroe.it.shopify_data.dto.CancelReason
-import dk.fantastiskefroe.it.shopify_data.dto.FinancialStatus
-import dk.fantastiskefroe.it.shopify_data.dto.FulfillmentStatus
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheCompanion
 import java.time.Instant
 import javax.persistence.*
@@ -41,8 +38,7 @@ class Order : PanachePostgresEntity() {
     companion object : PanacheCompanion<Order> {
         fun findValidByName(name: String) =
             find("name = ?1 and valid_from <= ?2 and valid_to = null", name, Instant.now()).firstResult()
-
-        fun findByFulfillmentStatus(status: FulfillmentStatus) = find("fulfillment_status", status)
-        fun listAllValid() = find("valid_to = null").list()
+        fun findByFulfillmentStatus(status: FulfillmentStatus) = list("fulfillment_status = ?1", status.name)
+        fun listAllValid() = list("valid_to = null")
     }
 }

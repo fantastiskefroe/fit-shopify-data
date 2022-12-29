@@ -1,5 +1,8 @@
 package dk.fantastiskefroe.it.shopify_data.dto
 
+import dk.fantastiskefroe.it.shopify_data.entity.CancelReason
+import dk.fantastiskefroe.it.shopify_data.entity.FinancialStatus
+import dk.fantastiskefroe.it.shopify_data.entity.FulfillmentStatus
 import dk.fantastiskefroe.it.shopify_data.entity.Order
 import java.time.Instant
 
