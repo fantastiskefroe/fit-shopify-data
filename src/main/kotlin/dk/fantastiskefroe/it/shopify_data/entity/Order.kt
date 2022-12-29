@@ -41,7 +41,7 @@ class Order : PanachePostgresEntity() {
             find("number = ?1 and valid_from <= ?2 and valid_to = null", number, Instant.now()).firstResult()
 
         fun listByFulfillmentStatus(status: FulfillmentStatus) =
-            list("fulfillment_status = ?1", Sort.by("number"), status.name)
+            list("fulfillment_status = ?1 and valid_to = null", Sort.by("number"), status.name)
 
         fun listAllValid() = list("valid_to = null", Sort.by("number"))
     }
