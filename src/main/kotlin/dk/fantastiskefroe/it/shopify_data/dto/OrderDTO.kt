@@ -9,7 +9,7 @@ import java.time.Instant
 data class OrderDTO(
     val name: String,
     val number: Int,
-    val cancelReason: CancelReason?,
+    val cancelReason: CancelReason,
     val financialStatus: FinancialStatus,
     val fulfillmentStatus: FulfillmentStatus,
     val subtotalPrice: Double?,

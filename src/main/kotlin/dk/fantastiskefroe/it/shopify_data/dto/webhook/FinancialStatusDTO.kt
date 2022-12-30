@@ -6,7 +6,7 @@ enum class FinancialStatusDTO {
     PENDING, AUTHORIZED, PARTIALLY_PAID, PAID, PARTIALLY_REFUNDED, REFUNDED, VOIDED,
 }
 
-fun FinancialStatusDTO.toInternal(): FinancialStatus {
+fun FinancialStatusDTO?.toInternal(): FinancialStatus {
     return when (this) {
         FinancialStatusDTO.PENDING -> FinancialStatus.PENDING
         FinancialStatusDTO.AUTHORIZED -> FinancialStatus.AUTHORIZED
@@ -15,5 +15,6 @@ fun FinancialStatusDTO.toInternal(): FinancialStatus {
         FinancialStatusDTO.PARTIALLY_REFUNDED -> FinancialStatus.PARTIALLY_REFUNDED
         FinancialStatusDTO.REFUNDED -> FinancialStatus.REFUNDED
         FinancialStatusDTO.VOIDED -> FinancialStatus.VOIDED
+        null -> FinancialStatus.NULL
     }
 }

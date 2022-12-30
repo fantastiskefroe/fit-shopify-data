@@ -16,7 +16,7 @@ class Order : PanachePostgresEntity() {
     var totalShippingPrice: Double? = null
 
     @Enumerated(EnumType.STRING)
-    var cancelReason: CancelReason? = null
+    lateinit var cancelReason: CancelReason
 
     @Enumerated(EnumType.STRING)
     lateinit var financialStatus: FinancialStatus

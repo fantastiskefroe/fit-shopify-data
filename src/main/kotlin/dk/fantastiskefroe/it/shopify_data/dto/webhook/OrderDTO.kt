@@ -10,7 +10,7 @@ data class OrderDTO(
     @JsonProperty("cancel_reason")
     val cancelReason: CancelReasonDTO?,
     @JsonProperty("financial_status")
-    val financialStatus: FinancialStatusDTO,
+    val financialStatus: FinancialStatusDTO?,
     @JsonProperty("fulfillment_status")
     val fulfillmentStatus: FulfillmentStatusDTO?,
     @JsonProperty("total_discount")
@@ -33,7 +33,7 @@ fun OrderDTO.toInternal(): Order {
     return Order().also { order ->
         order.name = name
         order.number = number
-        order.cancelReason = cancelReason?.toInternal()
+        order.cancelReason = cancelReason.toInternal()
         order.financialStatus = financialStatus.toInternal()
         order.fulfillmentStatus = fulfillmentStatus.toInternal()
         order.totalDiscount = totalDiscount
