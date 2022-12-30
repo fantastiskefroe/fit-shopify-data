@@ -7,7 +7,6 @@ import dk.fantastiskefroe.it.shopify_data.entity.OrderLine
 data class OrderLineDTO(
     val sku: String,
     val title: String,
-    @JsonProperty("variant_title")
     val variantTitle: String?,
     val quantity: Int,
     val price: Double
