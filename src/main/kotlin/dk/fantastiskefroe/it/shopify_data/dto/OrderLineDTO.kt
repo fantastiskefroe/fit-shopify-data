@@ -7,7 +7,7 @@ data class OrderLineDTO(
     val title: String,
     val variantTitle: String?,
     val quantity: Int,
-    val price: Double?
+    val price: Double
 ) {
     companion object {
         fun fromInternal(source: OrderLine): OrderLineDTO {

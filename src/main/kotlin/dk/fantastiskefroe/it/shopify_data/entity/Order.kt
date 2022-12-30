@@ -7,13 +7,8 @@ import javax.persistence.*
 
 @Entity(name = "orders")
 class Order : PanachePostgresEntity() {
-    lateinit var name: String
     var number: Int = 0
-    var totalDiscount: Double? = null
-    var subtotalPrice: Double? = null
-    var totalTax: Double? = null
-    var totalPrice: Double? = null
-    var totalShippingPrice: Double? = null
+    lateinit var name: String
 
     @Enumerated(EnumType.STRING)
     lateinit var cancelReason: CancelReason
@@ -23,6 +18,13 @@ class Order : PanachePostgresEntity() {
 
     @Enumerated(EnumType.STRING)
     lateinit var fulfillmentStatus: FulfillmentStatus
+
+    var totalDiscount: Double = 0.0
+    var subtotalPrice: Double = 0.0
+    var totalTax: Double = 0.0
+    var totalPrice: Double = 0.0
+    var totalShippingPrice: Double = 0.0
+
     lateinit var createdDateTime: Instant
     lateinit var validFrom: Instant
     var validTo: Instant? = null

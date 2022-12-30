@@ -10,7 +10,7 @@ data class OrderLineDTO(
     @JsonProperty("variant_title")
     val variantTitle: String?,
     val quantity: Int,
-    val price: Double?
+    val price: Double
 )
 
 fun OrderLineDTO.toInternal(): OrderLine {

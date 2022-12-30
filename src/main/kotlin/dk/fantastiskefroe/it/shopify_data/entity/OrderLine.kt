@@ -8,5 +8,5 @@ class OrderLine : PanachePostgresEntity() {
     lateinit var title: String
     var variantTitle: String? = null
     var quantity: Int = 0
-    var price: Double? = null
+    var price: Double = 0.0
 }
