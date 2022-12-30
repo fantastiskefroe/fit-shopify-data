@@ -1,8 +1,7 @@
-package dk.fantastiskefroe.it.shopify_data.controller
+package dk.fantastiskefroe.it.shopify_data.controller.webhook
 
-import dk.fantastiskefroe.it.shopify_data.dto.CreateOrderDTO
 import dk.fantastiskefroe.it.shopify_data.dto.OrderDTO
-import dk.fantastiskefroe.it.shopify_data.dto.toOrder
+import dk.fantastiskefroe.it.shopify_data.dto.webhook.toInternal
 import dk.fantastiskefroe.it.shopify_data.entity.*
 import java.time.Instant
 import javax.transaction.Transactional
@@ -14,30 +13,30 @@ import javax.ws.rs.core.MediaType
 
 @Transactional
 @Path("/webhook")
-class ShopifyController {
+class WebhookController {
 
     @POST
     @Path("/order-created")
     @Produces(MediaType.APPLICATION_JSON)
-    fun createOrder(order: CreateOrderDTO) : OrderDTO? {
+    fun createOrder(order: dk.fantastiskefroe.it.shopify_data.dto.webhook.OrderDTO): OrderDTO? {
         return createOrUpdateOrder(order)
     }
 
     @POST
     @Path("/order-updated")
     @Produces(MediaType.APPLICATION_JSON)
-    fun updateOrder(order: CreateOrderDTO) : OrderDTO? {
+    fun updateOrder(order: dk.fantastiskefroe.it.shopify_data.dto.webhook.OrderDTO): OrderDTO? {
         return createOrUpdateOrder(order)
     }
 
-    private fun createOrUpdateOrder(order: CreateOrderDTO): OrderDTO? {
+    private fun createOrUpdateOrder(order: dk.fantastiskefroe.it.shopify_data.dto.webhook.OrderDTO): OrderDTO? {
         Order.findValidByNumber(order.number)?.let {
             it.validTo = Instant.now()
             it.persist()
         }
 
-        return order.toOrder()
+        return order.toInternal()
             .also(Order::persist)
-            .let(OrderDTO::from)
+            .let(OrderDTO::fromInternal)
     }
 }

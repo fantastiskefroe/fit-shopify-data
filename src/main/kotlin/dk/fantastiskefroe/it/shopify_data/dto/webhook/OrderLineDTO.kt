@@ -1,12 +1,10 @@
-package dk.fantastiskefroe.it.shopify_data.dto
+package dk.fantastiskefroe.it.shopify_data.dto.webhook
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import dk.fantastiskefroe.it.shopify_data.entity.OrderLine
 
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class CreateOrderLineDTO(
+data class OrderLineDTO(
     val sku: String,
     val title: String,
     @JsonProperty("variant_title")
@@ -15,7 +13,7 @@ data class CreateOrderLineDTO(
     val price: Double?
 )
 
-fun CreateOrderLineDTO.toOrderLine(): OrderLine {
+fun OrderLineDTO.toInternal(): OrderLine {
     return OrderLine().also {
         it.sku = sku
         it.title = title

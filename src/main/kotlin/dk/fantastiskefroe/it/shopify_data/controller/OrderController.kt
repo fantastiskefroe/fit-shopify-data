@@ -18,6 +18,6 @@ class OrderController {
     @Produces(MediaType.APPLICATION_JSON)
     fun getOrders(@QueryParam("fulfillmentStatus") fulfillmentStatus: FulfillmentStatus?): List<OrderDTO> {
         return (fulfillmentStatus?.let(Order.Companion::listByFulfillmentStatus) ?: Order.listAllValid())
-            .map(OrderDTO::from)
+            .map(OrderDTO::fromInternal)
     }
 }

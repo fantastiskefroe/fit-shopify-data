@@ -1,50 +1,48 @@
-package dk.fantastiskefroe.it.shopify_data.dto
+package dk.fantastiskefroe.it.shopify_data.dto.webhook
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import dk.fantastiskefroe.it.shopify_data.entity.*
 import java.time.Instant
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class CreateOrderDTO(
+data class OrderDTO(
     val name: String,
     val number: Int,
     @JsonProperty("cancel_reason")
-    val cancelReason: CancelReason?,
+    val cancelReason: CancelReasonDTO?,
     @JsonProperty("financial_status")
-    val financialStatus: FinancialStatus,
+    val financialStatus: FinancialStatusDTO,
     @JsonProperty("fulfillment_status")
-    val fulfillmentStatus: FulfillmentStatus?,
+    val fulfillmentStatus: FulfillmentStatusDTO?,
     @JsonProperty("total_discount")
     val totalDiscount: Double?,
     @JsonProperty("subtotal_price")
     val subtotalPrice: Double?,
     @JsonProperty("total_tax")
     val totalTax: Double?,
+    @JsonProperty("total_shipping_price_set")
+    val totalShippingPriceSet: PriceSetDTO,
     @JsonProperty("total_price")
     val totalPrice: Double?,
-    @JsonProperty("total_shipping_price")
-    val totalShippingPrice: Double?,
     @JsonProperty("created_at")
     val createdAt: Instant,
     @JsonProperty("line_items")
-    val lineItems: List<CreateOrderLineDTO>,
+    val lineItems: List<OrderLineDTO>,
 )
 
-fun CreateOrderDTO.toOrder(): Order {
+fun OrderDTO.toInternal(): Order {
     return Order().also { order ->
         order.name = name
         order.number = number
-        order.cancelReason = cancelReason
-        order.financialStatus = financialStatus
-        order.fulfillmentStatus = fulfillmentStatus ?: FulfillmentStatus.NULL
+        order.cancelReason = cancelReason?.toInternal()
+        order.financialStatus = financialStatus.toInternal()
+        order.fulfillmentStatus = fulfillmentStatus.toInternal()
         order.totalDiscount = totalDiscount
         order.subtotalPrice = subtotalPrice
         order.totalTax = totalTax
         order.totalPrice = totalPrice
-        order.totalShippingPrice = totalShippingPrice
+        order.totalShippingPrice = totalShippingPriceSet.shopMoney.amount
         order.createdDateTime = createdAt
         order.validFrom = Instant.now()
-        order.orderLines = lineItems.map(CreateOrderLineDTO::toOrderLine).toSet()
+        order.orderLines = lineItems.map(OrderLineDTO::toInternal).toSet()
     }
 }

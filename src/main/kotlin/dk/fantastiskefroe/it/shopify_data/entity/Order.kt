@@ -28,10 +28,7 @@ class Order : PanachePostgresEntity() {
     var validTo: Instant? = null
 
     @OneToMany(
-        targetEntity = OrderLine::class,
-        cascade = [CascadeType.ALL],
-        fetch = FetchType.LAZY,
-        orphanRemoval = true
+        targetEntity = OrderLine::class, cascade = [CascadeType.ALL], fetch = FetchType.LAZY, orphanRemoval = true
     )
     @JoinColumn(name = "orderId", nullable = false)
     lateinit var orderLines: Set<OrderLine>

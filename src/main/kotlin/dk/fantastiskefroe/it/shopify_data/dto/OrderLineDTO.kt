@@ -9,15 +9,15 @@ data class OrderLineDTO(
     val quantity: Int,
     val price: Double?
 ) {
-    companion object
-}
-
-fun OrderLineDTO.Companion.from(source: OrderLine): OrderLineDTO {
-    return OrderLineDTO(
-        sku = source.sku,
-        title = source.title,
-        variantTitle = source.variantTitle,
-        quantity = source.quantity,
-        price = source.price
-    )
+    companion object {
+        fun fromInternal(source: OrderLine): OrderLineDTO {
+            return OrderLineDTO(
+                sku = source.sku,
+                title = source.title,
+                variantTitle = source.variantTitle,
+                quantity = source.quantity,
+                price = source.price
+            )
+        }
+    }
 }

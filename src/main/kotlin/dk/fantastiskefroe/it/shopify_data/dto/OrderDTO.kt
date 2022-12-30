@@ -12,16 +12,16 @@ data class OrderDTO(
     val cancelReason: CancelReason?,
     val financialStatus: FinancialStatus,
     val fulfillmentStatus: FulfillmentStatus,
-    val totalDiscount: Double?,
     val subtotalPrice: Double?,
+    val totalDiscount: Double?,
     val totalTax: Double?,
-    val totalPrice: Double?,
     val totalShippingPrice: Double?,
+    val totalPrice: Double?,
     val createdAt: Instant,
     val lineItems: List<OrderLineDTO>,
 ) {
     companion object {
-        fun from(source: Order): OrderDTO {
+        fun fromInternal(source: Order): OrderDTO {
             return OrderDTO(
                 name = source.name,
                 number = source.number,
@@ -34,7 +34,7 @@ data class OrderDTO(
                 totalPrice = source.totalPrice,
                 totalShippingPrice = source.totalShippingPrice,
                 createdAt = source.createdDateTime,
-                lineItems = source.orderLines.map(OrderLineDTO::from).toList().sortedBy(OrderLineDTO::sku)
+                lineItems = source.orderLines.map(OrderLineDTO::fromInternal).toList().sortedBy(OrderLineDTO::sku)
             )
         }
     }

@@ -6,7 +6,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
 
 @QuarkusTest
-class ShopifyControllerTest {
+class WebhookControllerTest {
 
     @Test
     fun testHelloEndpoint() {
