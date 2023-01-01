@@ -7,6 +7,7 @@ import dk.fantastiskefroe.it.shopify_data.entity.Order
 import java.time.Instant
 
 data class OrderDTO(
+    val shopifyId: Long,
     val number: Int,
     val name: String,
     val cancelReason: CancelReason,
@@ -23,6 +24,7 @@ data class OrderDTO(
     companion object {
         fun fromInternal(source: Order): OrderDTO {
             return OrderDTO(
+                shopifyId = source.shopifyId,
                 number = source.number,
                 name = source.name,
                 cancelReason = source.cancelReason,

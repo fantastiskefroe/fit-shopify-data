@@ -3,7 +3,8 @@ CREATE SEQUENCE hibernate_sequence START 1;
 CREATE TABLE orders
 (
     id                   BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
-    number               INT                                 NOT NULL,
+    shopify_id           BIGINT                              NOT NULL,
+    number               INTEGER                             NOT NULL,
     name                 VARCHAR(23)                         NOT NULL,
     cancel_reason        VARCHAR(32)                         NOT NULL,
     financial_status     VARCHAR(32)                         NOT NULL,
@@ -31,7 +32,7 @@ CREATE TABLE order_lines
     sku           VARCHAR(64)                         NOT NULL,
     title         VARCHAR(255)                        NOT NULL,
     variant_title VARCHAR(255)                        NULL,
-    quantity      INT                                 NOT NULL,
+    quantity      INTEGER                             NOT NULL,
     price         DOUBLE PRECISION                    NOT NULL,
 
     CONSTRAINT order_lines_pk

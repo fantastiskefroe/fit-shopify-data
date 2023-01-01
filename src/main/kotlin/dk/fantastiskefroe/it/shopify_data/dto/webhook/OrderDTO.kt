@@ -4,6 +4,7 @@ import dk.fantastiskefroe.it.shopify_data.entity.*
 import java.time.Instant
 
 data class OrderDTO(
+    val id: Long,
     val number: Int,
     val name: String,
     val cancelReason: CancelReasonDTO?,
@@ -20,6 +21,7 @@ data class OrderDTO(
 
 fun OrderDTO.toInternal(): Order {
     return Order().also { order ->
+        order.shopifyId = id
         order.number = number
         order.name = name
         order.cancelReason = cancelReason.toInternal()

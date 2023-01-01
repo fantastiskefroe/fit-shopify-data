@@ -7,6 +7,7 @@ import javax.persistence.*
 
 @Entity(name = "orders")
 class Order : PanachePostgresEntity() {
+    var shopifyId: Long = 0
     var number: Int = 0
     lateinit var name: String
 
