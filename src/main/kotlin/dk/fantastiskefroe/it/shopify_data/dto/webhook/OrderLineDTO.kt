@@ -23,7 +23,7 @@ fun OrderLineDTO.toInternal(refunds: List<RefundDTO>): OrderLine {
         it.price = priceSet.shopMoney.amount
         it.totalDiscount = totalDiscountSet.shopMoney.amount
         it.totalTax = taxLines.sumOf { taxLine -> taxLine.priceSet.shopMoney.amount }
-        it.totalPrice = it.price * quantity
+        it.totalPrice = (it.price * it.quantity) - it.totalDiscount
 
         val refundDTO =
             refunds.flatMap(RefundDTO::refundLineItems).find { refundLineItemDTO -> refundLineItemDTO.lineItemId == id }
