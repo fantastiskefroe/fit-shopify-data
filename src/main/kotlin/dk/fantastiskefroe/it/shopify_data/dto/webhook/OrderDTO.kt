@@ -14,7 +14,7 @@ data class OrderDTO(
     val currentSubtotalPriceSet: PriceSetDTO,
     val currentTotalTaxSet: PriceSetDTO,
     val totalShippingPriceSet: PriceSetDTO,
-    val totalPriceSet: PriceSetDTO,
+    val currentTotalPriceSet: PriceSetDTO,
     val createdAt: Instant,
     val lineItems: List<OrderLineDTO>,
 )
@@ -31,7 +31,7 @@ fun OrderDTO.toInternal(): Order {
         order.subtotalPrice = currentSubtotalPriceSet.shopMoney.amount
         order.totalTax = currentTotalTaxSet.shopMoney.amount
         order.totalShippingPrice = totalShippingPriceSet.shopMoney.amount
-        order.totalPrice = totalPriceSet.shopMoney.amount
+        order.totalPrice = currentTotalPriceSet.shopMoney.amount
         order.createdDateTime = createdAt
         order.validFrom = Instant.now()
         order.orderLines = lineItems.map(OrderLineDTO::toInternal).toSet()
