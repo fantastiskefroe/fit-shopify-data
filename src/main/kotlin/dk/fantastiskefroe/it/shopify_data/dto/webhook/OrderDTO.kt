@@ -17,6 +17,7 @@ data class OrderDTO(
     val currentTotalPriceSet: PriceSetDTO,
     val createdAt: Instant,
     val lineItems: List<OrderLineDTO>,
+    val refunds: List<RefundDTO>
 )
 
 fun OrderDTO.toInternal(): Order {
@@ -34,6 +35,6 @@ fun OrderDTO.toInternal(): Order {
         order.totalPrice = currentTotalPriceSet.shopMoney.amount
         order.createdDateTime = createdAt
         order.validFrom = Instant.now()
-        order.orderLines = lineItems.map(OrderLineDTO::toInternal).toSet()
+        order.orderLines = lineItems.map { it.toInternal(refunds) }.toSet()
     }
 }

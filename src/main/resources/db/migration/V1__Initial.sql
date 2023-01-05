@@ -27,13 +27,18 @@ CREATE TABLE orders
 
 CREATE TABLE order_lines
 (
-    id            BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
-    order_id      BIGINT                              NOT NULL,
-    sku           VARCHAR(64)                         NOT NULL,
-    title         VARCHAR(255)                        NOT NULL,
-    variant_title VARCHAR(255)                        NULL,
-    quantity      INTEGER                             NOT NULL,
-    price         DOUBLE PRECISION                    NOT NULL,
+    id             BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+    order_id       BIGINT                              NOT NULL,
+    sku            VARCHAR(64)                         NOT NULL,
+    title          VARCHAR(255)                        NOT NULL,
+    variant_title  VARCHAR(255)                        NULL,
+    quantity       INTEGER                             NOT NULL,
+    price          DOUBLE PRECISION                    NOT NULL,
+    total_discount DOUBLE PRECISION                    NOT NULL,
+    total_tax      DOUBLE PRECISION                    NOT NULL,
+    total_price    DOUBLE PRECISION                    NOT NULL,
+    refunded       BOOLEAN                             NOT NULL,
+    restock_type   VARCHAR(32)                         NOT NULL,
 
     CONSTRAINT order_lines_pk
         PRIMARY KEY (id),
