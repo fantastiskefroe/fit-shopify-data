@@ -4,7 +4,7 @@ import dk.fantastiskefroe.it.shopify_data.entity.OrderLine
 
 
 data class OrderLineDTO(
-    val id: Int,
+    val id: Long,
     val sku: String,
     val title: String,
     val variantTitle: String?,
