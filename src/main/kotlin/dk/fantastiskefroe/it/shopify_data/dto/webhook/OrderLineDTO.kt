@@ -28,7 +28,7 @@ fun OrderLineDTO.toInternal(refunds: List<RefundDTO>): OrderLine {
         val refundDTO =
             refunds.flatMap(RefundDTO::refundLineItems).find { refundLineItemDTO -> refundLineItemDTO.lineItemId == id }
 
-        it.refunded = refundDTO == null
+        it.refunded = refundDTO != null
         it.restockType = refundDTO?.restockType.toInternal()
     }
 }
