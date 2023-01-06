@@ -38,11 +38,36 @@ class Order : PanachePostgresEntity() {
 
     companion object : PanacheCompanion<Order> {
         fun findValidByNumber(number: Int) =
-            find("number = ?1 and valid_from <= ?2 and valid_to = null", number, Instant.now()).firstResult()
+            find("valid_to = null and number = ?1", number).firstResult()
 
-        fun listByFulfillmentStatus(status: FulfillmentStatus) =
-            list("fulfillment_status = ?1 and valid_to = null", Sort.by("number"), status.name)
+        fun listAllValid() =
+            list(
+                "valid_to = null",
+                Sort.by("number")
+            )
 
-        fun listAllValid() = list("valid_to = null", Sort.by("number"))
+        fun listValidByFulfillmentStatus(fulfillmentStatus: FulfillmentStatus) =
+            list(
+                "valid_to = null and fulfillment_status = ?1",
+                Sort.by("number"),
+                fulfillmentStatus.name
+            )
+
+        fun listValidByCreatedDateTime(from: Instant, to: Instant) =
+            list(
+                "valid_to = null and created_date_time >= ?1 and created_date_time < ?2",
+                Sort.by("number"),
+                from,
+                to
+            )
+
+        fun listValidByCreatedDateTimeAndFulfillmentStatus(from: Instant, to: Instant, fulfillmentStatus: FulfillmentStatus) =
+            list(
+                "valid_to = null and created_date_time >= ?1 and created_date_time < ?2 and fulfillment_status = ?3",
+                Sort.by("number"),
+                from,
+                to,
+                fulfillmentStatus.name
+            )
     }
 }
