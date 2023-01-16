@@ -4,6 +4,7 @@ import javax.persistence.Entity
 
 @Entity(name = "order_lines")
 class OrderLine : PanachePostgresEntity() {
+    var shopifyId: Long? = null
     lateinit var sku: String
     lateinit var title: String
     var variantTitle: String? = null

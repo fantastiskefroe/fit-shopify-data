@@ -15,20 +15,21 @@ data class OrderLineDTO(
 )
 
 fun OrderLineDTO.toInternal(refunds: List<RefundDTO>): OrderLine {
-    return OrderLine().also {
-        it.sku = sku
-        it.title = title
-        it.variantTitle = variantTitle
-        it.quantity = quantity
-        it.price = priceSet.shopMoney.amount
-        it.totalDiscount = totalDiscountSet.shopMoney.amount
-        it.totalTax = taxLines.sumOf { taxLine -> taxLine.priceSet.shopMoney.amount }
-        it.totalPrice = (it.price * it.quantity) - it.totalDiscount
+    return OrderLine().also { orderLine ->
+        orderLine.shopifyId = id
+        orderLine.sku = sku
+        orderLine.title = title
+        orderLine.variantTitle = variantTitle
+        orderLine.quantity = quantity
+        orderLine.price = priceSet.shopMoney.amount
+        orderLine.totalDiscount = totalDiscountSet.shopMoney.amount
+        orderLine.totalTax = taxLines.sumOf { taxLine -> taxLine.priceSet.shopMoney.amount }
+        orderLine.totalPrice = (orderLine.price * orderLine.quantity) - orderLine.totalDiscount
 
         val refundDTO =
-            refunds.flatMap(RefundDTO::refundLineItems).find { refundLineItemDTO -> refundLineItemDTO.lineItemId == id }
+            refunds.flatMap(RefundDTO::refundLineItems).find { it.lineItemId == id }
 
-        it.refunded = refundDTO != null
-        it.restockType = refundDTO?.restockType.toInternal()
+        orderLine.refunded = refundDTO != null
+        orderLine.restockType = refundDTO?.restockType.toInternal()
     }
 }

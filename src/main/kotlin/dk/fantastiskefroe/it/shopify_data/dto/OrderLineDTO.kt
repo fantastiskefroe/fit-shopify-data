@@ -4,6 +4,7 @@ import dk.fantastiskefroe.it.shopify_data.entity.OrderLine
 import dk.fantastiskefroe.it.shopify_data.entity.RestockType
 
 data class OrderLineDTO(
+    val shopifyId: Long?,
     val sku: String,
     val title: String,
     val variantTitle: String?,
@@ -18,6 +19,7 @@ data class OrderLineDTO(
     companion object {
         fun fromInternal(source: OrderLine): OrderLineDTO {
             return OrderLineDTO(
+                shopifyId = source.shopifyId,
                 sku = source.sku,
                 title = source.title,
                 refunded = source.refunded,
