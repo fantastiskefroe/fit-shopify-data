@@ -1,6 +1,6 @@
 package dk.fantastiskefroe.it.shopify_data.controller
 
-import dk.fantastiskefroe.it.shopify_data.dto.OrderDTO
+import dk.fantastiskefroe.it.shopify_data.dto.output.OrderOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
 import java.time.Instant
 import java.time.temporal.ChronoUnit
@@ -21,12 +21,12 @@ class OrderController {
         @QueryParam("fulfillmentStatus") fulfillmentStatus: FulfillmentStatus?,
         @QueryParam("from") fromParam: Instant? = Instant.MIN,
         @QueryParam("to") toParam: Instant? = Instant.MAX
-    ): List<OrderDTO> {
+    ): List<OrderOutput> {
         val from = fromParam ?: Instant.EPOCH
         val to = toParam ?: Instant.now().plus(365, ChronoUnit.DAYS)
         val orders = fulfillmentStatus?.let { Order.listValidByCreatedDateTimeAndFulfillmentStatus(from, to, it) }
             ?: Order.listValidByCreatedDateTime(from, to)
 
-        return orders.map(OrderDTO::fromInternal)
+        return orders.map(OrderOutput::fromInternal)
     }
 }
