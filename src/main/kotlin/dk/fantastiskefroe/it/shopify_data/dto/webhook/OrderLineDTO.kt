@@ -7,6 +7,8 @@ data class OrderLineDTO(
     val id: Long,
     val sku: String,
     val title: String,
+    val productId: Long,
+    val variantId: Long,
     val variantTitle: String?,
     val quantity: Int,
     val priceSet: PriceSetDTO,
@@ -19,6 +21,8 @@ fun OrderLineDTO.toInternal(refunds: List<RefundDTO>): OrderLine {
         orderLine.shopifyId = id
         orderLine.sku = sku
         orderLine.title = title
+        orderLine.productId = productId
+        orderLine.variantId = variantId
         orderLine.variantTitle = variantTitle
         orderLine.quantity = quantity
         orderLine.price = priceSet.shopMoney.amount
