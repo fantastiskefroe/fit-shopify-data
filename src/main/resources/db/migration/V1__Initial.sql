@@ -28,9 +28,12 @@ CREATE TABLE orders
 CREATE TABLE order_lines
 (
     id             BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+    shopify_id     BIGINT                              NOT NULL,
     order_id       BIGINT                              NOT NULL,
     sku            VARCHAR(64)                         NOT NULL,
     title          VARCHAR(255)                        NOT NULL,
+    product_id     BIGINT                              NOT NULL,
+    variant_id     BIGINT                              NOT NULL,
     variant_title  VARCHAR(255)                        NULL,
     quantity       INTEGER                             NOT NULL,
     price          DOUBLE PRECISION                    NOT NULL,

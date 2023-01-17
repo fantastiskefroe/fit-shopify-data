@@ -5,8 +5,8 @@ import dk.fantastiskefroe.it.shopify_data.entity.RestockType
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 
 data class OrderLineOutput(
-    @field:Schema(required = false)
-    val shopifyId: Long?,
+    @field:Schema(required = true)
+    val shopifyId: Long,
 
     @field:Schema(required = true)
     val sku: String,
@@ -14,11 +14,11 @@ data class OrderLineOutput(
     @field:Schema(required = true)
     val title: String,
 
-    @field:Schema(required = false)
-    val productId: Long?,
+    @field:Schema(required = true)
+    val productId: Long,
 
-    @field:Schema(required = false)
-    val variantId: Long?,
+    @field:Schema(required = true)
+    val variantId: Long,
 
     @field:Schema(required = false)
     val variantTitle: String?,

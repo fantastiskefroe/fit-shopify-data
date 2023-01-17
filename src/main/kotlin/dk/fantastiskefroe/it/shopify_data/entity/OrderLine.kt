@@ -6,11 +6,11 @@ import javax.persistence.Enumerated
 
 @Entity(name = "order_lines")
 class OrderLine : PanachePostgresEntity() {
-    var shopifyId: Long? = null
+    var shopifyId: Long = 0
     lateinit var sku: String
     lateinit var title: String
-    var productId: Long? = null
-    var variantId: Long? = null
+    var productId: Long = 0
+    var variantId: Long = 0
     var variantTitle: String? = null
     var quantity: Int = 0
     var price: Double = 0.0
