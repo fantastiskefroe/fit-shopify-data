@@ -2,8 +2,9 @@ package dk.fantastiskefroe.it.shopify_data.controller
 
 import dk.fantastiskefroe.it.shopify_data.dto.output.OrderOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
+import dk.fantastiskefroe.it.shopify_data.service.OrderService
 import java.time.Instant
-import java.time.temporal.ChronoUnit
+import javax.inject.Inject
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.Produces
@@ -12,21 +13,17 @@ import javax.ws.rs.core.MediaType
 
 
 @Path("/orders")
-class OrderController {
+class OrderController @Inject constructor(val orderService: OrderService) {
 
     @GET
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
     fun getOrders(
-        @QueryParam("fulfillmentStatus") fulfillmentStatus: FulfillmentStatus?,
-        @QueryParam("from") fromParam: Instant? = Instant.MIN,
-        @QueryParam("to") toParam: Instant? = Instant.MAX
+        @QueryParam("from") from: Instant,
+        @QueryParam("to") to: Instant,
+        @QueryParam("fulfillmentStatus") fulfillmentStatus: FulfillmentStatus?
     ): List<OrderOutput> {
-        val from = fromParam ?: Instant.EPOCH
-        val to = toParam ?: Instant.now().plus(365, ChronoUnit.DAYS)
-        val orders = fulfillmentStatus?.let { Order.listValidByCreatedDateTimeAndFulfillmentStatus(from, to, it) }
-            ?: Order.listValidByCreatedDateTime(from, to)
-
-        return orders.map(OrderOutput::fromInternal)
+        return orderService.getOrders(from, to, fulfillmentStatus)
+            .map(OrderOutput::fromInternal)
     }
 }

@@ -1,6 +1,8 @@
 package dk.fantastiskefroe.it.shopify_data.entity
 
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
 
 @Entity(name = "order_lines")
 class OrderLine : PanachePostgresEntity() {
@@ -16,5 +18,7 @@ class OrderLine : PanachePostgresEntity() {
     var totalTax: Double = 0.0
     var totalPrice: Double = 0.0
     var refunded: Boolean = false
+
+    @Enumerated(EnumType.STRING)
     lateinit var restockType: RestockType
 }
