@@ -1,13 +1,13 @@
-package dk.fantastiskefroe.it.shopify_data.dto.input.product
+package dk.fantastiskefroe.it.shopify_data.dto.output.product
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 
-data class ProductVariantInput(
+data class ProductVariantOutput(
     @field:Schema(required = true)
-    val id: Long,
+    val shopifyId: Long,
 
-    @field:Schema(required = false)
-    val title: String?,
+    @field:Schema(required = true)
+    val title: String,
 
     @field:Schema(required = true)
     val sku: String,
@@ -19,8 +19,8 @@ data class ProductVariantInput(
     val grams: Int,
 
     @field:Schema(required = true)
-    val price: String,
+    val price: Double,
 
     @field:Schema(required = false)
-    val compareAtPrice: String?,
+    val compareAtPrice: Double?,
 )
