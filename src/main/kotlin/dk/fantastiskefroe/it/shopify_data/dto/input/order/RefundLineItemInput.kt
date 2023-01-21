@@ -1,4 +1,4 @@
-package dk.fantastiskefroe.it.shopify_data.dto.input
+package dk.fantastiskefroe.it.shopify_data.dto.input.order
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 

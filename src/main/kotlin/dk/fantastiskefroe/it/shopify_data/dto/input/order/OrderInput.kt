@@ -1,6 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.dto.input
+package dk.fantastiskefroe.it.shopify_data.dto.input.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.*
+import dk.fantastiskefroe.it.shopify_data.entity.order.Order
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 import java.time.Instant
 

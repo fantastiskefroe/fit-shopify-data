@@ -1,5 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.entity
+package dk.fantastiskefroe.it.shopify_data.entity.order
 
+import dk.fantastiskefroe.it.shopify_data.entity.PanachePostgresEntity
 import javax.persistence.Entity
 import javax.persistence.EnumType
 import javax.persistence.Enumerated

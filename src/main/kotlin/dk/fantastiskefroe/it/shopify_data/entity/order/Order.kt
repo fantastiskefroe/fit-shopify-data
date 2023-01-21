@@ -1,5 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.entity
+package dk.fantastiskefroe.it.shopify_data.entity.order
 
+import dk.fantastiskefroe.it.shopify_data.entity.PanachePostgresEntity
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheCompanion
 import io.quarkus.panache.common.Sort
 import java.time.Instant
@@ -37,19 +38,6 @@ class Order : PanachePostgresEntity() {
     companion object : PanacheCompanion<Order> {
         fun findValidByNumber(number: Int) =
             find("valid_to = null and number = ?1", number).firstResult()
-
-        fun listAllValid() =
-            list(
-                "valid_to = null",
-                Sort.by("number")
-            )
-
-        fun listValidByFulfillmentStatus(fulfillmentStatus: FulfillmentStatus) =
-            list(
-                "valid_to = null and fulfillment_status = ?1",
-                Sort.by("number"),
-                fulfillmentStatus.name
-            )
 
         fun listValidByCreatedDateTime(from: Instant, to: Instant) =
             list(

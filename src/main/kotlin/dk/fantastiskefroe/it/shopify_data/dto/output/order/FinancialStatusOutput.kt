@@ -1,6 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.dto.output
+package dk.fantastiskefroe.it.shopify_data.dto.output.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.FinancialStatus
+import dk.fantastiskefroe.it.shopify_data.entity.order.FinancialStatus
 
 enum class FinancialStatusOutput {
     NULL, PENDING, AUTHORIZED, PARTIALLY_PAID, PAID, PARTIALLY_REFUNDED, REFUNDED, VOIDED;

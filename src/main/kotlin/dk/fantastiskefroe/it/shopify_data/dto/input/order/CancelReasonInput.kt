@@ -1,6 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.dto.input
+package dk.fantastiskefroe.it.shopify_data.dto.input.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.CancelReason
+import dk.fantastiskefroe.it.shopify_data.entity.order.CancelReason
 
 enum class CancelReasonInput {
     CUSTOMER, FRAUD, INVENTORY, DECLINED, OTHER

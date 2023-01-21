@@ -1,6 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.dto.input
+package dk.fantastiskefroe.it.shopify_data.dto.input.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.RestockType
+import dk.fantastiskefroe.it.shopify_data.entity.order.RestockType
 
 enum class RestockTypeInput {
     NO_RESTOCK, CANCEL, RETURN

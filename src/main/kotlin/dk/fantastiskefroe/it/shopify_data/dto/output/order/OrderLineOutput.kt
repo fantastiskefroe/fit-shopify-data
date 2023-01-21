@@ -1,7 +1,7 @@
-package dk.fantastiskefroe.it.shopify_data.dto.output
+package dk.fantastiskefroe.it.shopify_data.dto.output.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.OrderLine
-import dk.fantastiskefroe.it.shopify_data.entity.RestockType
+import dk.fantastiskefroe.it.shopify_data.entity.order.OrderLine
+import dk.fantastiskefroe.it.shopify_data.entity.order.RestockType
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 
 data class OrderLineOutput(

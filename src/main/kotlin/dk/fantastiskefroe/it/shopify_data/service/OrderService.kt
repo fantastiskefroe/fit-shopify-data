@@ -1,7 +1,7 @@
 package dk.fantastiskefroe.it.shopify_data.service
 
-import dk.fantastiskefroe.it.shopify_data.entity.FulfillmentStatus
-import dk.fantastiskefroe.it.shopify_data.entity.Order
+import dk.fantastiskefroe.it.shopify_data.entity.order.FulfillmentStatus
+import dk.fantastiskefroe.it.shopify_data.entity.order.Order
 import io.quarkus.cache.CacheResult
 import java.time.Instant
 import javax.enterprise.context.ApplicationScoped

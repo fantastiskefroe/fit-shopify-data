@@ -1,7 +1,7 @@
 package dk.fantastiskefroe.it.shopify_data.controller
 
-import dk.fantastiskefroe.it.shopify_data.dto.input.OrderInput
-import dk.fantastiskefroe.it.shopify_data.dto.output.OrderOutput
+import dk.fantastiskefroe.it.shopify_data.dto.input.order.OrderInput
+import dk.fantastiskefroe.it.shopify_data.dto.output.order.OrderOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
 import dk.fantastiskefroe.it.shopify_data.service.WebhookService
 import javax.inject.Inject

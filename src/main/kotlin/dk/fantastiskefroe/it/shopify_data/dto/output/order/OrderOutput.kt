@@ -1,6 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.dto.output
+package dk.fantastiskefroe.it.shopify_data.dto.output.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.Order
+import dk.fantastiskefroe.it.shopify_data.entity.order.Order
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 import java.time.Instant
 
@@ -60,7 +60,7 @@ data class OrderOutput(
                 totalShippingPrice = source.totalShippingPrice,
                 createdAt = source.createdDateTime,
                 lineItems = source.orderLines
-                    .map(OrderLineOutput::fromInternal)
+                    .map(OrderLineOutput.Companion::fromInternal)
                     .toList()
                     .sortedBy(OrderLineOutput::sku)
             )

@@ -15,7 +15,7 @@ class RequestLogger {
         Log.info("Request: ${request.method()} ${request.uri()}")
         Log.info("--Request Headers--")
 
-        ("\n"+request.headers().joinToString("\n")).let(Log::info)
+        ("\n" + request.headers().joinToString("\n")).let(Log::info)
         request.body { buffer ->
             Log.info("Request body: ${buffer.result()}")
         }

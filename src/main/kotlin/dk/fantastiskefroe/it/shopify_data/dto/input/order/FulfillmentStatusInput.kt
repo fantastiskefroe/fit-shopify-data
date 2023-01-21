@@ -1,6 +1,6 @@
-package dk.fantastiskefroe.it.shopify_data.dto.input
+package dk.fantastiskefroe.it.shopify_data.dto.input.order
 
-import dk.fantastiskefroe.it.shopify_data.entity.FulfillmentStatus
+import dk.fantastiskefroe.it.shopify_data.entity.order.FulfillmentStatus
 
 enum class FulfillmentStatusInput {
     NULL, FULFILLED, PARTIAL, RESTOCKED, PENDING,
