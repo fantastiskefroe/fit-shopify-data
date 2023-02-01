@@ -14,8 +14,8 @@ data class OrderInput(
     @field:Schema(required = true)
     val name: String,
 
-    @field:Schema(required = false)
-    val customerId: Long?,
+    @field:Schema(required = true)
+    val customer: CustomerInput,
 
     @field:Schema(required = false)
     val cancelReason: CancelReasonInput?,
@@ -59,6 +59,7 @@ fun OrderInput.toInternal(): Order {
         order.shopifyId = id
         order.number = number
         order.name = name
+        order.customerId = customer.id
         order.cancelReason = cancelReason.toInternal()
         order.financialStatus = financialStatus.toInternal()
         order.fulfillmentStatus = fulfillmentStatus.toInternal()

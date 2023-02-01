@@ -14,6 +14,9 @@ data class OrderOutput(
     @field:Schema(required = true)
     val name: String,
 
+    @field:Schema(required = false)
+    val customerId: Long?,
+
     @field:Schema(required = true)
     val cancelReason: CancelReasonOutput,
 
@@ -53,6 +56,7 @@ data class OrderOutput(
                 shopifyId = source.shopifyId,
                 number = source.number,
                 name = source.name,
+                customerId = source.customerId,
                 cancelReason = CancelReasonOutput.fromInternal(source.cancelReason),
                 financialStatus = FinancialStatusOutput.fromInternal(source.financialStatus),
                 fulfillmentStatus = FulfillmentStatusOutput.fromInternal(source.fulfillmentStatus),

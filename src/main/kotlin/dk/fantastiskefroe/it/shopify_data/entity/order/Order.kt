@@ -11,13 +11,11 @@ class Order : PanachePostgresEntity() {
     var shopifyId: Long = 0
     var number: Int = 0
     lateinit var name: String
-
+    var customerId: Long? = null
     @Enumerated(EnumType.STRING)
     lateinit var cancelReason: CancelReason
-
     @Enumerated(EnumType.STRING)
     lateinit var financialStatus: FinancialStatus
-
     @Enumerated(EnumType.STRING)
     lateinit var fulfillmentStatus: FulfillmentStatus
     var totalDiscount: Double = 0.0
