@@ -25,6 +25,7 @@ class Order : PanachePostgresEntity() {
     var totalTax: Double = 0.0
     var totalPrice: Double = 0.0
     var totalShippingPrice: Double = 0.0
+    var weight: Int? = null
     lateinit var createdDateTime: Instant
     lateinit var validFrom: Instant
     var validTo: Instant? = null

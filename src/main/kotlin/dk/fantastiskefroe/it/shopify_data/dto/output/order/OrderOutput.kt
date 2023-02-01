@@ -38,6 +38,9 @@ data class OrderOutput(
     @field:Schema(required = true)
     val totalPrice: Double,
 
+    @field:Schema(required = false)
+    val weight: Int?,
+
     @field:Schema(required = true)
     val createdAt: Instant,
 
@@ -58,6 +61,7 @@ data class OrderOutput(
                 totalTax = source.totalTax,
                 totalPrice = source.totalPrice,
                 totalShippingPrice = source.totalShippingPrice,
+                weight = source.weight,
                 createdAt = source.createdDateTime,
                 lineItems = source.orderLines
                     .map(OrderLineOutput.Companion::fromInternal)

@@ -15,6 +15,9 @@ data class OrderInput(
     val name: String,
 
     @field:Schema(required = false)
+    val customerId: Long?,
+
+    @field:Schema(required = false)
     val cancelReason: CancelReasonInput?,
 
     @field:Schema(required = false)
@@ -39,6 +42,9 @@ data class OrderInput(
     val currentTotalPriceSet: PriceSetInput,
 
     @field:Schema(required = true)
+    val totalWeight: Int,
+
+    @field:Schema(required = true)
     val createdAt: Instant,
 
     @field:Schema(required = true)
@@ -61,6 +67,7 @@ fun OrderInput.toInternal(): Order {
         order.totalTax = currentTotalTaxSet.shopMoney.amount
         order.totalShippingPrice = totalShippingPriceSet.shopMoney.amount
         order.totalPrice = currentTotalPriceSet.shopMoney.amount
+        order.weight = totalWeight
         order.createdDateTime = createdAt
         order.validFrom = Instant.now()
         order.orderLines = lineItems.map { it.toInternal(refunds) }.toSet()
