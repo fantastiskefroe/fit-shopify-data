@@ -14,13 +14,19 @@ data class ProductOutput(
     val handle: String,
 
     @field:Schema(required = true)
-    val status: ProductStatusOutput,
-
-    @field:Schema(required = false)
-    val publishedAt: Instant?,
+    val mainImageUrl: String,
 
     @field:Schema(required = true)
-    val mainImage: String,
+    val status: ProductStatusOutput,
+
+    @field:Schema(required = true)
+    val createdDateTime: Instant,
+
+    @field:Schema(required = true)
+    val updatedDateTime: Instant,
+
+    @field:Schema(required = false)
+    val publishedDateTime: Instant?,
 
     @field:Schema(required = true)
     val tags: List<String>,

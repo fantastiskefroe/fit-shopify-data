@@ -43,13 +43,17 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     fun createProduct(productInput: ProductInput): ProductOutput {
+        webhookService.createOrUpdateProduct(productInput)
+
         return ProductOutput(
             1,
             "title",
             "handle",
+            "notAnImage",
             ProductStatusOutput.ACTIVE,
             Instant.now(),
-            "notAnImage",
+            Instant.now(),
+            Instant.now(),
             listOf("tag1", "tag2"),
             listOf()
         )
@@ -60,13 +64,17 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     fun updateProduct(productInput: ProductInput): ProductOutput {
+        webhookService.createOrUpdateProduct(productInput)
+
         return ProductOutput(
             1,
             "title",
             "handle",
+            "notAnImage",
             ProductStatusOutput.ACTIVE,
             Instant.now(),
-            "notAnImage",
+            Instant.now(),
+            Instant.now(),
             listOf("tag1", "tag2"),
             listOf()
         )

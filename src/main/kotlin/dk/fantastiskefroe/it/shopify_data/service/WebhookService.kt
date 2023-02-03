@@ -2,7 +2,10 @@ package dk.fantastiskefroe.it.shopify_data.service
 
 import dk.fantastiskefroe.it.shopify_data.dto.input.order.OrderInput
 import dk.fantastiskefroe.it.shopify_data.dto.input.order.toInternal
+import dk.fantastiskefroe.it.shopify_data.dto.input.product.ProductInput
+import dk.fantastiskefroe.it.shopify_data.dto.input.product.toInternal
 import dk.fantastiskefroe.it.shopify_data.entity.order.Order
+import dk.fantastiskefroe.it.shopify_data.entity.product.Product
 import io.quarkus.cache.CacheInvalidateAll
 import java.time.Instant
 import javax.enterprise.context.ApplicationScoped
@@ -22,5 +25,13 @@ class WebhookService {
 
         return order.toInternal()
             .also(Order::persist)
+    }
+
+    @Transactional
+    fun createOrUpdateProduct(productInput: ProductInput): Product {
+        Product.findByShopifyId(productInput.id)?.delete()
+
+        return productInput.toInternal()
+            .also(Product::persist)
     }
 }
