@@ -33,30 +33,4 @@ class Product : PanachePostgresEntity() {
     companion object : PanacheCompanion<Product> {
         fun findByShopifyId(shopifyId: Long) = find("shopify_id = ?1", shopifyId).firstResult()
     }
-
-//        companion object : PanacheCompanion<Order> {
-//        fun findValidByNumber(number: Int) =
-//            find("valid_to = null and number = ?1", number).firstResult()
-//
-//        fun listValidByCreatedDateTime(from: Instant, to: Instant) =
-//            list(
-//                "valid_to = null and created_date_time >= ?1 and created_date_time < ?2",
-//                Sort.by("number"),
-//                from,
-//                to
-//            )
-//
-//        fun listValidByCreatedDateTimeAndFulfillmentStatus(
-//            from: Instant,
-//            to: Instant,
-//            fulfillmentStatus: FulfillmentStatus
-//        ) =
-//            list(
-//                "valid_to = null and created_date_time >= ?1 and created_date_time < ?2 and fulfillment_status = ?3",
-//                Sort.by("number"),
-//                from,
-//                to,
-//                fulfillmentStatus.name
-//            )
-//    }
 }
