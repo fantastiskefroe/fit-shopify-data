@@ -1,7 +1,9 @@
 package dk.fantastiskefroe.it.shopify_data.controller
 
+import dk.fantastiskefroe.it.shopify_data.dto.input.stats.GroupByUnitInput
+import dk.fantastiskefroe.it.shopify_data.dto.input.stats.toInternal
+import dk.fantastiskefroe.it.shopify_data.dto.output.stats.StatsOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
-import dk.fantastiskefroe.it.shopify_data.entity.stats.Stats
 import dk.fantastiskefroe.it.shopify_data.service.StatsService
 import java.time.Instant
 import javax.inject.Inject
@@ -21,17 +23,22 @@ class StatsController @Inject constructor(val statsService: StatsService) {
     fun getStats(
         @QueryParam("from") from: Instant,
         @QueryParam("to") to: Instant,
-    ): Stats {
-        return statsService.getStats(from, to)
+    ): StatsOutput {
+        val stats = statsService.getStats(from, to)
+
+        return StatsOutput.fromInternal(stats)
     }
 
     @GET
-    @Path("/daily")
+    @Path("/grouped")
     @Produces(MediaType.APPLICATION_JSON)
-    fun getStatsByDay(
+    fun getStatsGrouped(
         @QueryParam("from") from: Instant,
         @QueryParam("to") to: Instant,
-    ): List<Stats> {
-        return statsService.getStatsByDay(from, to)
+        @QueryParam("unit") groupByUnitInput: GroupByUnitInput
+    ): List<StatsOutput> {
+        return statsService
+            .getStatsGroupedBy(from, to, groupByUnitInput.toInternal())
+            .map(StatsOutput.Companion::fromInternal)
     }
 }

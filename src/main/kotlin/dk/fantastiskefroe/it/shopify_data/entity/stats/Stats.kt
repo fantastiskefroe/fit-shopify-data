@@ -8,6 +8,8 @@ data class Stats(
     val numOrders: Int,
     val averageOrderValue: Double,
     val totalOrderValue: Double,
+    val averageShippingValue: Double,
+    val totalShippingValue: Double,
     val averageOrderWeight: Double?,
     val totalOrderWeight: Int?,
     val numOrderLines: Int,
