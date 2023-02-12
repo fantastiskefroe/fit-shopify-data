@@ -48,9 +48,9 @@ class StatsService {
                 orders.map(Order::totalShippingPrice).sum(),
                 if (weights.contains(null)) null else weights.requireNoNulls().average(),
                 if (weights.contains(null)) null else weights.requireNoNulls().sum(),
-                orders.flatMap(Order::orderLines).size,
-                orders.flatMap(Order::orderLines).map(OrderLine::price).average(),
-                orders.flatMap(Order::orderLines).map(OrderLine::price).sum(),
+                orders.flatMap(Order::orderLines).filter { !it.refunded }.size,
+                orders.flatMap(Order::orderLines).filter { !it.refunded }.map(OrderLine::price).average(),
+                orders.flatMap(Order::orderLines).filter { !it.refunded }.map(OrderLine::price).sum(),
             )
         }
 
