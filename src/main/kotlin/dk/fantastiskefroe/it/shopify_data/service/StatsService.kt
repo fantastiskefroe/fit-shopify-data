@@ -72,7 +72,7 @@ class StatsService @Inject constructor(val productService: ProductService) {
         ): ProductVariantStats? {
             val variantOrders = orders
                 .filter { order -> order.orderLines.any { orderLine -> orderLine.variantId == productVariant.shopifyId } }
-            if (variantOrders.isEmpty()) {
+            if (variantOrders.isEmpty() || productVariant.inventoryQuantity < 0) {
                 return null
             }
 
