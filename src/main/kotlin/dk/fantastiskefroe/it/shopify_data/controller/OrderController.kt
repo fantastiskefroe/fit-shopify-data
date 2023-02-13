@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType
 class OrderController @Inject constructor(val orderService: OrderService) {
 
     @HeaderParam("x-fit-token")
-    val token: String? = null
+    var token: String? = null
 
     @GET
     @Path("")

@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType
 class StatsController @Inject constructor(val statsService: StatsService) {
 
     @HeaderParam("x-fit-token")
-    val token: String? = null
+    var token: String? = null
 
     @GET
     @Path("")
