@@ -7,15 +7,15 @@ import dk.fantastiskefroe.it.shopify_data.entity.*
 import dk.fantastiskefroe.it.shopify_data.service.StatsService
 import java.time.Instant
 import javax.inject.Inject
-import javax.ws.rs.GET
-import javax.ws.rs.Path
-import javax.ws.rs.Produces
-import javax.ws.rs.QueryParam
+import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
 
 @Path("/stats")
 class StatsController @Inject constructor(val statsService: StatsService) {
+
+    @HeaderParam("x-fit-token")
+    val token: String? = null
 
     @GET
     @Path("")
