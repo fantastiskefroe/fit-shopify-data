@@ -42,3 +42,4 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}-native:latest
             ghcr.io/${{ github.repository }}-native:${{ github.sha }}
+            ghcr.io/${{ github.repository }}-native:${{ github.ref_name }}
