@@ -7,12 +7,10 @@ import dk.fantastiskefroe.it.shopify_data.dto.output.product.ProductOutput
 import dk.fantastiskefroe.it.shopify_data.dto.output.product.ProductStatusOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
 import dk.fantastiskefroe.it.shopify_data.service.WebhookService
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody
 import java.time.Instant
 import javax.inject.Inject
-import javax.ws.rs.Consumes
-import javax.ws.rs.POST
-import javax.ws.rs.Path
-import javax.ws.rs.Produces
+import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
 
@@ -23,7 +21,10 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
     @Path("/order-created")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    fun createOrder(order: OrderInput): OrderOutput {
+    fun createOrder(
+        @QueryParam("fit-token") token: String,
+        @RequestBody order: OrderInput
+    ): OrderOutput {
         return webhookService.createOrUpdateOrder(order)
             .let(OrderOutput.Companion::fromInternal)
     }
@@ -32,7 +33,10 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
     @Path("/order-updated")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    fun updateOrder(order: OrderInput): OrderOutput {
+    fun updateOrder(
+        @QueryParam("fit-token") token: String,
+        @RequestBody order: OrderInput
+    ): OrderOutput {
         return webhookService.createOrUpdateOrder(order)
             .let(OrderOutput.Companion::fromInternal)
     }
@@ -42,7 +46,10 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
     @Path("/product-created")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    fun createProduct(productInput: ProductInput): ProductOutput {
+    fun createProduct(
+        @QueryParam("fit-token") token: String,
+        @RequestBody productInput: ProductInput
+    ): ProductOutput {
         webhookService.createOrUpdateProduct(productInput)
 
         return ProductOutput(
@@ -63,7 +70,10 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
     @Path("/product-updated")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    fun updateProduct(productInput: ProductInput): ProductOutput {
+    fun updateProduct(
+        @QueryParam("fit-token") token: String,
+        @RequestBody productInput: ProductInput
+    ): ProductOutput {
         webhookService.createOrUpdateProduct(productInput)
 
         return ProductOutput(
