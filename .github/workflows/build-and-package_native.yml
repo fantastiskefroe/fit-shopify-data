@@ -1,9 +1,8 @@
 name: Publish Native Docker image
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 jobs:
   build_native:
