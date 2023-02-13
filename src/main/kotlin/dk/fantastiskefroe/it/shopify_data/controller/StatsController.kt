@@ -4,6 +4,7 @@ import dk.fantastiskefroe.it.shopify_data.dto.input.stats.GroupByUnitInput
 import dk.fantastiskefroe.it.shopify_data.dto.input.stats.toInternal
 import dk.fantastiskefroe.it.shopify_data.dto.output.stats.StatsOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
+import dk.fantastiskefroe.it.shopify_data.entity.stats.ProductVariantStats
 import dk.fantastiskefroe.it.shopify_data.service.StatsService
 import java.time.Instant
 import javax.inject.Inject
@@ -40,5 +41,16 @@ class StatsController @Inject constructor(val statsService: StatsService) {
         return statsService
             .getStatsGroupedBy(from, to, groupByUnitInput.toInternal())
             .map(StatsOutput.Companion::fromInternal)
+    }
+
+
+    @GET
+    @Path("/remaining")
+    @Produces(MediaType.APPLICATION_JSON)
+    fun getProductVariantStats(
+        @QueryParam("from") from: Instant,
+    ): List<ProductVariantStats> {
+        return statsService
+            .getProductVariantStats(from)
     }
 }

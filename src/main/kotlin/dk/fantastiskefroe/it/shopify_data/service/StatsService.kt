@@ -3,7 +3,10 @@ package dk.fantastiskefroe.it.shopify_data.service
 import dk.fantastiskefroe.it.shopify_data.entity.order.CancelReason
 import dk.fantastiskefroe.it.shopify_data.entity.order.Order
 import dk.fantastiskefroe.it.shopify_data.entity.order.OrderLine
+import dk.fantastiskefroe.it.shopify_data.entity.product.Product
+import dk.fantastiskefroe.it.shopify_data.entity.product.ProductVariant
 import dk.fantastiskefroe.it.shopify_data.entity.stats.GroupByUnit
+import dk.fantastiskefroe.it.shopify_data.entity.stats.ProductVariantStats
 import dk.fantastiskefroe.it.shopify_data.entity.stats.Stats
 import java.time.Instant
 import java.time.ZoneId
@@ -11,10 +14,11 @@ import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAdjusters
 import javax.enterprise.context.ApplicationScoped
+import javax.inject.Inject
 
 
 @ApplicationScoped
-class StatsService {
+class StatsService @Inject constructor(val productService: ProductService) {
 
     fun getStats(from: Instant, to: Instant): Stats {
         val orders = Order.listValidByCreatedDateTime(from, to)
@@ -33,8 +37,62 @@ class StatsService {
             .map(StatsService::statsFromOrderList)
     }
 
+    fun getProductVariantStats(from: Instant): List<ProductVariantStats> {
+        val to = Instant.now()
+        val orders = Order.listValidByCreatedDateTime(from, to)
+            .filter { it.cancelReason == CancelReason.NULL }
+
+        val products: Set<Product> = orders
+            .flatMap(Order::orderLines)
+            .asSequence()
+            .filter { orderLine -> !orderLine.refunded }
+            .map(OrderLine::productId)
+            .distinct()
+            .mapNotNull(productService::getProductByShopifyId)
+            .toSet()
+
+        val numDays = ChronoUnit.SECONDS.between(from, to) / 86400.0
+
+        return products
+            .flatMap { product ->
+                product.variants
+                    .mapNotNull { productVariant ->
+                        buildProductVariantStats(product, productVariant, orders, numDays)
+                    }
+            }
+            .sortedBy(ProductVariantStats::daysLeft)
+    }
 
     companion object {
+        private fun buildProductVariantStats(
+            product: Product,
+            productVariant: ProductVariant,
+            orders: List<Order>,
+            numDays: Double
+        ): ProductVariantStats? {
+            val variantOrders = orders
+                .filter { order -> order.orderLines.any { orderLine -> orderLine.variantId == productVariant.shopifyId } }
+            if (variantOrders.isEmpty()) {
+                return null
+            }
+
+            val orderLines = variantOrders
+                .flatMap(Order::orderLines)
+                .filter { orderLine -> orderLine.variantId == productVariant.shopifyId }
+            val numSold = orderLines.sumOf(OrderLine::quantity)
+            val soldPerDay = numSold / numDays
+            val daysLeft = productVariant.inventoryQuantity / soldPerDay
+
+            return ProductVariantStats(
+                product,
+                productVariant,
+                variantOrders.size,
+                numSold,
+                soldPerDay,
+                daysLeft,
+            )
+        }
+
         private fun statsFromOrderList(orders: List<Order>): Stats {
             val weights = orders.map(Order::weight)
 

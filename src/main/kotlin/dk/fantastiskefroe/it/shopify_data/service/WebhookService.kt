@@ -28,6 +28,7 @@ class WebhookService {
     }
 
     @Transactional
+    @CacheInvalidateAll(cacheName = "products")
     fun createOrUpdateProduct(productInput: ProductInput): Product {
         Product.findByShopifyId(productInput.id)?.delete()
 
