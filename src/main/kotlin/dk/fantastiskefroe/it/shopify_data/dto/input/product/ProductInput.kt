@@ -50,7 +50,7 @@ fun ProductInput.toInternal(): Product {
         product.handle = handle
         product.vendor = vendor
         product.productType = productType
-        product.mainImageUrl = images.find { it.position == 0 }?.src ?: ""
+        product.mainImageUrl = images.find { it.position == 1 }?.src ?: ""
         product.status = status.toInternal()
         product.createdDateTime = createdAt
         product.updatedDateTime = updatedAt
