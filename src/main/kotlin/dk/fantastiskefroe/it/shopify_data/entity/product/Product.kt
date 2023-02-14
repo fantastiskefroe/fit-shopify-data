@@ -10,6 +10,7 @@ class Product : PanachePostgresEntity() {
     var shopifyId: Long = 0
     lateinit var title: String
     lateinit var handle: String
+    var vendor: String? = null
     lateinit var mainImageUrl: String
 
     @Enumerated(EnumType.STRING)
