@@ -4,11 +4,9 @@ import dk.fantastiskefroe.it.shopify_data.dto.input.order.OrderInput
 import dk.fantastiskefroe.it.shopify_data.dto.input.product.ProductInput
 import dk.fantastiskefroe.it.shopify_data.dto.output.order.OrderOutput
 import dk.fantastiskefroe.it.shopify_data.dto.output.product.ProductOutput
-import dk.fantastiskefroe.it.shopify_data.dto.output.product.ProductStatusOutput
 import dk.fantastiskefroe.it.shopify_data.entity.*
 import dk.fantastiskefroe.it.shopify_data.service.WebhookService
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody
-import java.time.Instant
 import javax.inject.Inject
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
@@ -26,7 +24,7 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
         @RequestBody order: OrderInput
     ): OrderOutput {
         return webhookService.createOrUpdateOrder(order)
-            .let(OrderOutput.Companion::fromInternal)
+            .let(OrderOutput::fromInternal)
     }
 
     @POST
@@ -38,7 +36,7 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
         @RequestBody order: OrderInput
     ): OrderOutput {
         return webhookService.createOrUpdateOrder(order)
-            .let(OrderOutput.Companion::fromInternal)
+            .let(OrderOutput::fromInternal)
     }
 
 
@@ -50,20 +48,8 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
         @QueryParam("fit-token") token: String,
         @RequestBody productInput: ProductInput
     ): ProductOutput {
-        webhookService.createOrUpdateProduct(productInput)
-
-        return ProductOutput(
-            1,
-            "title",
-            "handle",
-            "notAnImage",
-            ProductStatusOutput.ACTIVE,
-            Instant.now(),
-            Instant.now(),
-            Instant.now(),
-            listOf("tag1", "tag2"),
-            listOf()
-        )
+        return webhookService.createOrUpdateProduct(productInput)
+            .let(ProductOutput::fromInternal)
     }
 
     @POST
@@ -74,19 +60,7 @@ class WebhookController @Inject constructor(val webhookService: WebhookService) 
         @QueryParam("fit-token") token: String,
         @RequestBody productInput: ProductInput
     ): ProductOutput {
-        webhookService.createOrUpdateProduct(productInput)
-
-        return ProductOutput(
-            1,
-            "title",
-            "handle",
-            "notAnImage",
-            ProductStatusOutput.ACTIVE,
-            Instant.now(),
-            Instant.now(),
-            Instant.now(),
-            listOf("tag1", "tag2"),
-            listOf()
-        )
+        return webhookService.createOrUpdateProduct(productInput)
+            .let(ProductOutput::fromInternal)
     }
 }

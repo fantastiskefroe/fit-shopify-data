@@ -1,5 +1,7 @@
 package dk.fantastiskefroe.it.shopify_data.dto.output.product
 
+import dk.fantastiskefroe.it.shopify_data.entity.product.Product
+import dk.fantastiskefroe.it.shopify_data.entity.product.ProductTag
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 import java.time.Instant
 
@@ -12,6 +14,12 @@ data class ProductOutput(
 
     @field:Schema(required = true)
     val handle: String,
+
+    @field:Schema(required = true)
+    val vendor: String?,
+
+    @field:Schema(required = true)
+    var productType: String?,
 
     @field:Schema(required = true)
     val mainImageUrl: String,
@@ -33,4 +41,23 @@ data class ProductOutput(
 
     @field:Schema(required = true)
     val variants: List<ProductVariantOutput>,
-)
+) {
+    companion object {
+        fun fromInternal(source: Product): ProductOutput {
+            return ProductOutput(
+                source.shopifyId,
+                source.title,
+                source.handle,
+                source.vendor,
+                source.productType,
+                source.mainImageUrl,
+                ProductStatusOutput.fromInternal(source.status),
+                source.createdDateTime,
+                source.updatedDateTime,
+                source.publishedDateTime,
+                source.tags.map(ProductTag::text).toList(),
+                source.variants.map(ProductVariantOutput::fromInternal).toList()
+            )
+        }
+    }
+}

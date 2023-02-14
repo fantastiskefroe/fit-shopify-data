@@ -1,5 +1,6 @@
 package dk.fantastiskefroe.it.shopify_data.dto.output.product
 
+import dk.fantastiskefroe.it.shopify_data.entity.product.ProductVariant
 import org.eclipse.microprofile.openapi.annotations.media.Schema
 import java.time.Instant
 
@@ -30,4 +31,20 @@ data class ProductVariantOutput(
 
     @field:Schema(required = true)
     val updatedDateTime: Instant,
-)
+) {
+    companion object {
+        fun fromInternal(source: ProductVariant): ProductVariantOutput {
+            return ProductVariantOutput(
+                shopifyId = source.shopifyId,
+                title = source.title,
+                sku = source.sku,
+                inventoryQuantity = source.inventoryQuantity,
+                weight = source.weight,
+                price = source.price,
+                compareAtPrice = source.compareAtPrice,
+                createdDateTime = source.createdDateTime,
+                updatedDateTime = source.updatedDateTime
+            )
+        }
+    }
+}
