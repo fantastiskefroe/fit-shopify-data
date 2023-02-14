@@ -8,6 +8,11 @@ import javax.enterprise.context.ApplicationScoped
 class ProductService {
 
     @CacheResult(cacheName = "products")
+    fun getProducts(): List<Product> {
+        return Product.listAll()
+    }
+
+    @CacheResult(cacheName = "products")
     fun getProductByShopifyId(shopifyId: Long): Product? {
         return Product.findByShopifyId(shopifyId)
     }
