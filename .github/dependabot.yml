@@ -4,13 +4,16 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
-      time: "07:00"
+      interval: weekly
+      day: "monday"
+      time: "06:00"
       timezone: "Europe/Copenhagen"
 
-  - package-ecosystem: maven
+  - package-ecosystem: npm
     directory: /
     schedule:
-      interval: daily
-      time: "07:00"
+      interval: weekly
+      day: "monday"
+      time: "06:00"
       timezone: "Europe/Copenhagen"
+
