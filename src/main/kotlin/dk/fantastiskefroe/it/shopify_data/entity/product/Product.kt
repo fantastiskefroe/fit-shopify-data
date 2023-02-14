@@ -11,6 +11,7 @@ class Product : PanachePostgresEntity() {
     lateinit var title: String
     lateinit var handle: String
     var vendor: String? = null
+    var productType: String? = null
     lateinit var mainImageUrl: String
 
     @Enumerated(EnumType.STRING)

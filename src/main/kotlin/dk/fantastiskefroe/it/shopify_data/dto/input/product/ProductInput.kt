@@ -18,6 +18,9 @@ data class ProductInput(
     @field:Schema(required = false)
     val vendor: String?,
 
+    @field:Schema(required = false)
+    val productType: String?,
+
     @field:Schema(required = true)
     val status: ProductStatusInput,
 
@@ -46,6 +49,7 @@ fun ProductInput.toInternal(): Product {
         product.title = title
         product.handle = handle
         product.vendor = vendor
+        product.productType = productType
         product.mainImageUrl = images.find { it.position == 0 }?.src ?: ""
         product.status = status.toInternal()
         product.createdDateTime = createdAt
