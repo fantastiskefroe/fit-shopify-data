@@ -107,8 +107,8 @@ class StatsService @Inject constructor(val productService: ProductService) {
                 if (weights.contains(null)) null else weights.requireNoNulls().average(),
                 if (weights.contains(null)) null else weights.requireNoNulls().sum(),
                 orders.flatMap(Order::orderLines).filter { !it.refunded }.size,
-                orders.flatMap(Order::orderLines).filter { !it.refunded }.map(OrderLine::price).average(),
-                orders.flatMap(Order::orderLines).filter { !it.refunded }.map(OrderLine::price).sum(),
+                orders.flatMap(Order::orderLines).filter { !it.refunded }.map(OrderLine::totalPrice).average(),
+                orders.flatMap(Order::orderLines).filter { !it.refunded }.map(OrderLine::totalPrice).sum(),
             )
         }
 
