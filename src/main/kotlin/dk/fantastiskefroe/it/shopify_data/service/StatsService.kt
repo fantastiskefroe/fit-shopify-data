@@ -97,8 +97,8 @@ class StatsService @Inject constructor(val productService: ProductService) {
             val weights = orders.map(Order::weight)
 
             return Stats(
-                orders.minOf(Order::createdDateTime),
-                orders.maxOf(Order::createdDateTime),
+                if (orders.isEmpty()) null else orders.minOf(Order::createdDateTime),
+                if (orders.isEmpty()) null else orders.maxOf(Order::createdDateTime),
                 orders.size,
                 orders.map(Order::totalPrice).average(),
                 orders.map(Order::totalPrice).sum(),

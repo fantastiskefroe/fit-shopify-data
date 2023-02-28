@@ -6,11 +6,11 @@ import java.time.Instant
 
 
 data class StatsOutput(
-    @field:Schema(required = true)
-    val from: Instant,
+    @field:Schema(required = false)
+    val from: Instant?,
 
-    @field:Schema(required = true)
-    val to: Instant,
+    @field:Schema(required = false)
+    val to: Instant?,
 
     @field:Schema(required = true)
     val numberOfOrders: Int,
