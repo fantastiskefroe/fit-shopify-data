@@ -44,6 +44,7 @@ class StatsService @Inject constructor(val productService: ProductService) {
         val numDays = ChronoUnit.SECONDS.between(from, to) / 86400.0
 
         return productService.getProducts()
+            .filter { product -> product.variants.any { it.inventoryQuantity >= 0 } }
             .flatMap { product ->
                 product.variants
                     .map { productVariant ->
