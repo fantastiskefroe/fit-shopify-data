@@ -41,22 +41,12 @@ class StatsService @Inject constructor(val productService: ProductService) {
         val to = Instant.now()
         val orders = Order.listValidByCreatedDateTime(from, to)
             .filter { it.cancelReason == CancelReason.NULL }
-
-        val products: Set<Product> = orders
-            .flatMap(Order::orderLines)
-            .asSequence()
-            .filter { orderLine -> !orderLine.refunded }
-            .map(OrderLine::productId)
-            .distinct()
-            .mapNotNull(productService::getProductByShopifyId)
-            .toSet()
-
         val numDays = ChronoUnit.SECONDS.between(from, to) / 86400.0
 
-        return products
+        return productService.getProducts()
             .flatMap { product ->
                 product.variants
-                    .mapNotNull { productVariant ->
+                    .map { productVariant ->
                         buildProductVariantStats(product, productVariant, orders, numDays)
                     }
             }
@@ -69,27 +59,24 @@ class StatsService @Inject constructor(val productService: ProductService) {
             productVariant: ProductVariant,
             orders: List<Order>,
             numDays: Double
-        ): ProductVariantStats? {
+        ): ProductVariantStats {
             val variantOrders = orders
                 .filter { order -> order.orderLines.any { orderLine -> orderLine.variantId == productVariant.shopifyId } }
-            if (variantOrders.isEmpty() || productVariant.inventoryQuantity < 0) {
-                return null
-            }
 
             val orderLines = variantOrders
                 .flatMap(Order::orderLines)
                 .filter { orderLine -> orderLine.variantId == productVariant.shopifyId }
             val numSold = orderLines.sumOf(OrderLine::quantity)
             val soldPerDay = numSold / numDays
-            val daysLeft = productVariant.inventoryQuantity / soldPerDay
+            val daysLeft = if (soldPerDay == 0.0) Double.NaN else productVariant.inventoryQuantity / soldPerDay
 
             return ProductVariantStats(
-                product,
-                productVariant,
-                variantOrders.size,
-                numSold,
-                soldPerDay,
-                daysLeft,
+                product = product,
+                variant = productVariant,
+                numOrders = variantOrders.size,
+                numSold = numSold,
+                soldPerDay = soldPerDay,
+                daysLeft = daysLeft,
             )
         }
 
